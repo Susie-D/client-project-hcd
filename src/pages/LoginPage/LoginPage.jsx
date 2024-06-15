@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
+import '../../styles/_button.scss';
 
 function LoginPage() {
   const history = useHistory();
