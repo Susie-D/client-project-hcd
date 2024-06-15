@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import '../../styles/_grid.scss';
 
 // CUSTOM COMPONENTS
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
 
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
@@ -52,7 +52,7 @@ function LandingPage() {
           </p>
         </div>
         <div className="grid-col grid-col_4">
-          <RegisterForm />
+          <SignUpForm />
 
           <center>
             <h4>Already a Member?</h4>

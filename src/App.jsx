@@ -12,9 +12,8 @@ import ProtectedRoute from './route/ProtectedRoute/ProtectedRoute.jsx';
 import {
   AboutPage,
   InfoPage,
-  LandingPage,
   LoginPage,
-  RegisterPage,
+  SignUpPage,
   UserPage,
 } from './pages/pages.jsx';
 
@@ -33,7 +32,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
           {/* Visiting localhost:5173 will redirect to localhost:5173/home */}
           <Redirect exact from="/" to="/home" />
@@ -78,14 +77,14 @@ function App() {
             )}
           </Route>
 
-          <Route exact path="/registration">
+          <Route exact path="/sign-up">
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <RegisterPage />
+              <SignUpPage />
             )}
           </Route>
 
@@ -105,7 +104,6 @@ function App() {
             <div className="header-one jc-center">404</div>
           </Route>
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

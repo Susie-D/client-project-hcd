@@ -1,29 +1,32 @@
 $font-family: 'Manrope', sans-serif;
 
 //  headers
-$header-xl: 56px;
-$header-l: 40px;
-$header-m: 28px;
-$header-s: 26px;
-$header-xs: 22px;
-$header-xxs: 20px;
+$header-xl: 40px;
+$header-l: 28px;
+$header-m: 22px;
+$header-s: 20px;
+$header-xs: 18px;
+$header-xxs: 16px;
 
 //  h1
 .header-one {
   font-family: $font-family;
   font-size: $header-xl;
+  font-weight: bold;
 }
 
 //  h2
 .header-two {
   font-family: $font-family;
   font-size: $header-l;
+  font-weight: bold;
 }
 
 //  h3
 .header-three {
   font-family: $font-family;
   font-size: $header-m;
+  font-weight: bold;
 }
 
 //  h4

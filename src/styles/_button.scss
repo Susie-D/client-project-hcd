@@ -5,14 +5,36 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #008183;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
   background-color: $primary;
+  border-width: 1px 1px 3px;
+  border-radius: 5px;
+  border: 1px solid $tertiary;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  &-pill {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $primary;
+    height: auto;
+    border-width: 1px 1px 3px;
+    border-radius: 10em;
+    border: 1px solid $secondary;
+    color: #f8f8f8;
+    font-size: 1.1rem;
+    outline: 0;
+    cursor: pointer;
+    width: 100%;
+    &:hover {
+      background-color: $secondary;
+      border: 1px solid $tertiary;
+      color: $dark;
+    }
+  }
+  &:hover {
+    background-color: $secondary;
+  }
 }
 
 .btn_sizeMin {
@@ -31,7 +53,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: $secondary;
   text-decoration: none;
 }
 
@@ -39,15 +61,15 @@ Button
 .btn_asLink {
   padding: 0;
   border-width: 0;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid $tertiary;
   border-radius: 0;
   background: none;
   font: inherit;
-  color: #444;
+  color: $tertiary;
 }
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: $tertiary;
+  color: $secondary;
 }
