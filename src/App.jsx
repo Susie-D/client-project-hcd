@@ -19,6 +19,7 @@ import {
 } from './pages/pages.jsx';
 
 import './App.css';
+import './styles/_styles.scss';
 
 function App() {
   const dispatch = useDispatch();
@@ -101,7 +102,7 @@ function App() {
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
-            <h1>404</h1>
+            <div className="header-one jc-center">404</div>
           </Route>
         </Switch>
         <Footer />
