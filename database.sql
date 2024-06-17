@@ -1,12 +1,20 @@
-CREATE DATABASE "hcd";
-
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 -- USER 
+
+DROP TABLE IF EXISTS "user";
+DROP TABLE IF EXISTS "devices";
+DROP TABLE IF EXISTS "device_types";
+DROP TABLE IF EXISTS "device_properties";
+DROP TABLE IF EXISTS "catagories";
+DROP TABLE IF EXISTS "additional_device_info";
+
+
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
+    "username" VARCHAR (100) NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
     "email" VARCHAR (80),
     "first_name" VARCHAR (80),
@@ -14,12 +22,12 @@ CREATE TABLE "user" (
     "location" VARCHAR (80)
 );
 -- Pratice User Data
-INSERT INTO "user" ("password", "email", "first_name", "last_name", "location")
-    VALUES  ('Mewrowrouh?', 'kingofthecastle@tails.com', 'Bacon', 'Douang', 'Minneapolis'),
-            ('Woof!', 'babydog20@paws.com', 'Mozzarella', 'Clendenen', 'NE MPLS'),
-            ('PizzaRULEZ', 'teenagemutantninja@turtles.com', 'Donatello', 'Leonardo', 'New York City'),
-            ('YinDynasty', 'ZhouDynasty@roots.com', 'Bonsai', 'Taproot', 'Tokyo, Japan'),
-            ('LetsGrowww', 'GrowThroughWhatYouGoThrough@gmail.com', 'Leia', 'Monne', 'South Minneapolis');
+INSERT INTO "user" ("username", "password", "email", "first_name", "last_name", "location")
+    VALUES  ('Mahad','Mewrowrouh?', 'kingofthecastle@tails.com', 'Bacon', 'Douang', 'Minneapolis'),
+            ('Suz', 'Woof!', 'babydog20@paws.com', 'Mozzarella', 'Clendenen', 'NE MPLS'),
+            ('Lexi', 'PizzaRULEZ', 'teenagemutantninja@turtles.com', 'Donatello', 'Leonardo', 'New York City'),
+            ('Steve','YinDynasty', 'ZhouDynasty@roots.com', 'Bonsai', 'Taproot', 'Tokyo, Japan'),
+            ('Ayla','LetsGrowww', 'GrowThroughWhatYouGoThrough@gmail.com', 'Leia', 'Monne', 'South Minneapolis');
 
 -- CATAGORIES
 CREATE TABLE "catagories" (
