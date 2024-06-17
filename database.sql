@@ -3,6 +3,9 @@
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 -- USER 
+CREATE DATABASE "hcd";
+
+
 
 DROP TABLE IF EXISTS "user";
 DROP TABLE IF EXISTS "devices";
