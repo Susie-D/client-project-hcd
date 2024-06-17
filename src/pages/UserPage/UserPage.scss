@@ -15,11 +15,10 @@
       color: white; 
       display: block; 
       text-align: center;
-      padding: 47px 1px;
+      padding: 30px 1px;
       border-radius: 50px; //bring up different looks with group
       width: 50%; 
-      text-decoration: underline; 
-      margin: 30px;
+      margin: small;
       
       &:hover {
         background-color:$secondary;
