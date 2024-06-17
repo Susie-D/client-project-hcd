@@ -12,15 +12,21 @@ function UserPage() {
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <NavLink className="nav-link" to="/info">
-        Tutorial & Helpful Links
+        Tutorial &
+        <br />
+         Helpful Links
       </NavLink>
       <br />
       <NavLink className="nav-link" to="/info">
-        Add Devices/Items
+        Add 
+        <br />
+        Devices/Items
       </NavLink>
       <br />
       <NavLink className="nav-link" to="/info">
-        Items Reports
+        Items 
+        <br />
+        Report
       </NavLink>
     </div>
     </PageLayout>
