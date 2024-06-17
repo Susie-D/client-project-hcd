@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav jc-space-between">
       <Link to="/home">
-        <div className="nav-title header-two">House Checkup Digital</div>
+        <div className="nav-title header-two">House Checkup</div>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
