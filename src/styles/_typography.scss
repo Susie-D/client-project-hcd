@@ -1,0 +1,87 @@
+$font-family: 'Manrope', sans-serif;
+
+//  headers
+$header-xl: 40px;
+$header-l: 28px;
+$header-m: 22px;
+$header-s: 20px;
+$header-xs: 18px;
+$header-xxs: 16px;
+
+//  h1
+.header-one {
+  font-family: $font-family;
+  font-size: $header-xl;
+  font-weight: bold;
+}
+
+//  h2
+.header-two {
+  font-family: $font-family;
+  font-size: $header-l;
+  font-weight: bold;
+}
+
+//  h3
+.header-three {
+  font-family: $font-family;
+  font-size: $header-m;
+  font-weight: bold;
+}
+
+//  h4
+.header-four {
+  font-family: $font-family;
+  font-size: $header-s;
+}
+
+//  h5
+.header-five {
+  font-family: $font-family;
+  font-size: $header-xs;
+}
+
+//  h6
+.header-six {
+  font-family: $font-family;
+  font-size: $header-xxs;
+}
+
+//  body text
+
+$text-xl: 40px;
+$text-l: 30px;
+$text-m: 24px;
+$text-s: 18px;
+$text-xs: 16px;
+$text-xxs: 12px;
+
+.text-xl {
+  font-family: $font-family;
+  font-size: $text-xl;
+}
+
+.text-l {
+  font-family: $font-family;
+  font-size: $text-l;
+}
+
+.text-m {
+  font-family: $font-family;
+  font-size: $text-m;
+}
+
+.text-s {
+  font-family: $font-family;
+  font-size: $text-s;
+}
+
+.text-xs {
+  font-family: $font-family;
+  font-size: $text-xs;
+}
+
+.text-xxs {
+  font-family: $font-family;
+  font-size: $text-xxs;
+}
