@@ -1,0 +1,49 @@
+//  Main Colors
+$primary: #6cb051;
+$secondary: #a9d09e;
+$tertiary: #75bde0;
+$dark: #032e45;
+$light: #f6e2bc;
+$white: #ffffff;
+
+//  Other Colors
+$disabled: #cdcbd1;
+$success: #1c7238;
+$caution: #eba949;
+$warning: #bd2c38;
+
+.primary {
+  color: $primary;
+}
+
+.secondary {
+  color: $secondary;
+}
+
+.tertiary {
+  color: $tertiary;
+}
+
+.dark {
+  color: $dark;
+}
+
+.light {
+  color: $light;
+}
+
+.disabled {
+  color: $disabled;
+}
+
+.success {
+  color: $success;
+}
+
+.caution {
+  color: $caution;
+}
+
+.warning {
+  color: $warning;
+}

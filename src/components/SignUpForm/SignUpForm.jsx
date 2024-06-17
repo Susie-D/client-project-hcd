@@ -1,45 +1,41 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './_loginForm.scss';
+import './_signUpForm.scss';
 
-function LoginForm() {
+function SignUpForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
-  const login = (event) => {
+  const registerUser = (event) => {
     event.preventDefault();
 
-    if (username && password) {
-      dispatch({
-        type: 'LOGIN',
-        payload: {
-          username: username,
-          password: password,
-        },
-      });
-    } else {
-      dispatch({ type: 'LOGIN_INPUT_ERROR' });
-    }
-  }; // end login
+    dispatch({
+      type: 'REGISTER',
+      payload: {
+        username: username,
+        password: password,
+      },
+    });
+  }; // end registerUser
 
   return (
-    <form className="login-form column" onSubmit={login}>
-      <div className="header-two jc-center">Login</div>
-      {errors.loginMessage && (
+    <form className="signUp-form column" onSubmit={registerUser}>
+      <div className="header-two jc-center">Sign Up</div>
+      {errors.registrationMessage && (
         <h3 className="alert" role="alert">
-          {errors.loginMessage}
+          {errors.registrationMessage}
         </h3>
       )}
-      <div className="login-form-input column">
+      <div className="column">
         <input
           type="text"
           name="username"
           placeholder="Username"
           className="row text-m"
-          required
           value={username}
+          required
           onChange={(event) => setUsername(event.target.value)}
         />
       </div>
@@ -49,8 +45,8 @@ function LoginForm() {
           name="password"
           placeholder="Password"
           className="row text-m"
-          required
           value={password}
+          required
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
@@ -59,11 +55,11 @@ function LoginForm() {
           className="btn-pill text-s"
           type="submit"
           name="submit"
-          value="Log In"
+          value="Register"
         />
       </div>
     </form>
   );
 }
 
-export default LoginForm;
+export default SignUpForm;

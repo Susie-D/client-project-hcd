@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig(() => {
     return {
@@ -8,9 +9,9 @@ export default defineConfig(() => {
         },
         server: {
             proxy: {
-                "/api":'http://localhost:5001',
+                "/api": 'http://localhost:5001',
             }
         },
-        plugins: [react()],
+        plugins: [react(), svgr()],
     };
 });
