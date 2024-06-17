@@ -21,7 +21,7 @@ app.use(sessionMiddleware);
 // Start Passport Sessions
 app.use(passport.initialize());
 app.use(passport.session());
-//hey steve ;0
+
 // Routes
 app.use('/api/user', userRouter);
 
