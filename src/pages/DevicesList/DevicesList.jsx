@@ -7,7 +7,7 @@ function DevicesList(){
     return( 
         <div className="container">
             <div>
-                <p>Devices List</p>
+                <p>Devices List 😄</p>
             </div>
         </div>
     )
