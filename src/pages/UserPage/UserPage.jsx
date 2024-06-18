@@ -17,7 +17,7 @@ function UserPage() {
          Helpful Links
       </NavLink>
       <br />
-      <NavLink className="nav-link" to="/info">
+      <NavLink className="nav-link" to="/main-intake">
         Add 
         <br />
         Devices/Items

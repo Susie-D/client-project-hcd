@@ -15,6 +15,10 @@ import {
   LoginPage,
   SignUpPage,
   UserPage,
+  FurnaceIntakePage,
+  FridgeIntakePage,
+  Under_SinkIntakePage,
+  Gutters_n_SpoutsPage,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -98,6 +102,38 @@ function App() {
               <LoginPage />
             )}
           </Route>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/furnace-main-intake"
+          >
+            <FurnaceIntakePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/fridge-main-intake"
+          >
+            <FridgeIntakePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/Under_Sink-main-intake"
+          >
+            <Under_SinkIntakePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/Gutters_n_Spouts-main-intake"
+          >
+            <Gutters_n_SpoutsPage />
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
