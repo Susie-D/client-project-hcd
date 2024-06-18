@@ -3,13 +3,12 @@
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 -- USER 
-
-DROP TABLE IF EXISTS "user";
+DROP TABLE IF EXISTS "additional_device_info";
+DROP TABLE IF EXISTS "device_properties";
 DROP TABLE IF EXISTS "devices";
 DROP TABLE IF EXISTS "device_types";
-DROP TABLE IF EXISTS "device_properties";
 DROP TABLE IF EXISTS "catagories";
-DROP TABLE IF EXISTS "additional_device_info";
+DROP TABLE IF EXISTS "user";
 
 
 CREATE TABLE "user" (
