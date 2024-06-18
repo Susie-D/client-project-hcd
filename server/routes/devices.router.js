@@ -2,18 +2,12 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
-router.get('/', (req, res) => {
-  // GET route code here
-});
 
 /**
  * GET route template
  */
 router.get('/', (req, res) => {
-  // console.log('I am in the devices.router.js', req.user);
+   console.log('I am in the devices.router.js', req.user);
   const query = `
   SELECT "brand", "model", "serial_number", "maintenance_date", 
   "maintenance_due", "location", "img_url", "manufacture_date", 
@@ -30,9 +24,6 @@ router.get('/', (req, res) => {
     res.sendStatus(500)
   })
 });
-
-
-
 
 
 
