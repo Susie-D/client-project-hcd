@@ -15,6 +15,7 @@ import {
   LoginPage,
   SignUpPage,
   UserPage,
+  DevicesList,
 } from './pages/pages.jsx';
 
 import './App.css';
