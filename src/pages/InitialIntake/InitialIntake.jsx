@@ -24,7 +24,7 @@ export default function InitialIntake() {
             id="demo-simple-select"
             value={age}
             label="Age"
-            onChange={() => handleChange(e)}
+            onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#6cb051' }}
           >
             <MenuItem value={10}>Ten</MenuItem>
@@ -40,8 +40,8 @@ export default function InitialIntake() {
             id="demo-simple-select"
             value={age}
             label="Age"
-            onChange={() => handleChange(e)}
-            style={{ borderRadius: '10em' }}
+            onChange={(e) => handleChange(e)}
+            style={{ borderRadius: '10em', backgroundColor: '#6cb051' }}
           >
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
@@ -56,8 +56,8 @@ export default function InitialIntake() {
             id="demo-simple-select"
             value={age}
             label="Age"
-            onChange={() => handleChange(e)}
-            style={{ borderRadius: '10em' }}
+            onChange={(e) => handleChange(e)}
+            style={{ borderRadius: '10em', backgroundColor: '#6cb051' }}
           >
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
@@ -72,8 +72,8 @@ export default function InitialIntake() {
             id="demo-simple-select"
             value={age}
             label="Age"
-            onChange={() => handleChange(e)}
-            style={{ borderRadius: '10em' }}
+            onChange={(e) => handleChange(e)}
+            style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
@@ -89,8 +89,8 @@ export default function InitialIntake() {
             value={age}
             label="Age"
             className=""
-            onChange={() => handleChange(e)}
-            style={{ borderRadius: '10em' }}
+            onChange={(e) => handleChange(e)}
+            style={{ borderRadius: '10em', backgroundColor: '#6cb051' }}
           >
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
@@ -105,8 +105,8 @@ export default function InitialIntake() {
             id="demo-simple-select"
             value={age}
             label="Age"
-            onChange={() => handleChange(e)}
-            style={{ borderRadius: '10em' }}
+            onChange={(e) => handleChange(e)}
+            style={{ borderRadius: '10em', backgroundColor: '#6cb051' }}
           >
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
