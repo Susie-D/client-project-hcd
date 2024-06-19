@@ -13,27 +13,34 @@ function FurnaceIntakePage() {
 
   return (
     <PageLayout>
-      <div className="login-container">
-        <div className="row jc-center">
-          <Logo />
-        </div>
+      <div className="header-three jc-center">Intake Screen</div>
+      <div className="">
+      <div className="header-two jc-center">Furnace</div>
         <IntakeFormBase />
         {/* <> $ additional_device_info will go here! </> */}
         <div className="row jc-center">
-            <button
+        <button 
+                className="btn"
+                onClick={() => {
+                history.push('/user');
+                }}
+                >Back
+            </button>
+            {/* <button
+                className="btn"
                 type="button"
                 onClick={() => {
                 history.push('/tracking-intake');
                 }}
-            >Next
-            </button>
-        <p></p>
-            <button 
+                >Next
+            </button> */}
+            <button
                 className="btn"
-                onClick={() => {
-                    history.push('/user');
-                    }}
-                >Back
+                type="submit"
+                onSubmit={(event) => {
+                event.preventDefault();
+                }}
+                >Submit
             </button>
         </div>
       </div>

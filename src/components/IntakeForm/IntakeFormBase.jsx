@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import './_intakeForm.scss';
 
 function IntakeFormBase (){
@@ -28,6 +28,7 @@ function IntakeFormBase (){
         install_date,
         // user_id: userId,
       }
+
      // need to use AddDevice const and  onSubmit={nextPage} on line 39
 
      // no dispatch, store in SAGA until view 3
@@ -37,7 +38,6 @@ function IntakeFormBase (){
 
     return (
       <form className="intake-form column">
-        <div className="header-two jc-center">Intake Screen</div>
         <div className="column">
           <input
             type="text"
@@ -120,17 +120,3 @@ function IntakeFormBase (){
 }''
 
 export default IntakeFormBase;
-
-//Add information about device/item:
-// X Location 
-// X Brand Name
-// X Model #
-// X Serial #
-// X Manufacture Date
-// Take Photo Upload
-
-// Requirements
-// The user should be able to add Input into the Textboxes
-
-// Definition of Done
-// The user should be able to add input into the textboxes. The form is mobile friendly.
