@@ -6,6 +6,8 @@ const router = express.Router();
  * GET route template
  */
 
+//! Next router get needs to be device ID router.get('/:id', (req, res) => {
+
 
 router.get('/', (req, res) => {
   const query = `
