@@ -31,7 +31,7 @@ function LoginForm() {
         <h3 className="alert" role="alert">
           {errors.loginMessage}
         </h3>
-      )}      
+      )}
       <div className="login-form-input column">
         <input
           type="text"
