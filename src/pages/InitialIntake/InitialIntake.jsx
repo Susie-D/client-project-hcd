@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { PageLayout } from '../pages';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { categories } from '../../data/categories';
 import './_initialIntake.scss';
 import '../../styles/_styles.scss';
 
@@ -33,9 +34,9 @@ export default function InitialIntake() {
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {categories[0].deviceType.map((c, i) => (
+              <MenuItem value={c.name}>{c.name}</MenuItem>
+            ))}
           </Select>
         </FormControl>
 
@@ -57,9 +58,9 @@ export default function InitialIntake() {
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {categories[1].deviceType.map((c, i) => (
+              <MenuItem value={c.name}>{c.name}</MenuItem>
+            ))}
           </Select>
         </FormControl>
 
