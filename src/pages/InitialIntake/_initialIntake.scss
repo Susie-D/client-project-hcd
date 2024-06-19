@@ -5,3 +5,13 @@
     margin: $margin-xl;
   }
 }
+
+label#select-label {
+  color: $dark;
+  font-size: $text-s;
+}
+
+div#select {
+  text-align: center;
+  padding: none;
+}
