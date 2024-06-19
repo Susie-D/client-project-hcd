@@ -29,7 +29,7 @@ export default function InitialIntake() {
           <Select
             labelId="select-label"
             id="select"
-            value={age}
+            value={e.target.value}
             label="hvac"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
@@ -82,9 +82,9 @@ export default function InitialIntake() {
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {categories[2].deviceType.map((c, i) => (
+              <MenuItem value={c.name}>{c.name}</MenuItem>
+            ))}
           </Select>
         </FormControl>
 
@@ -106,9 +106,9 @@ export default function InitialIntake() {
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {categories[3].deviceType.map((c, i) => (
+              <MenuItem value={c.name}>{c.name}</MenuItem>
+            ))}
           </Select>
         </FormControl>
 
@@ -130,9 +130,9 @@ export default function InitialIntake() {
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {categories[4].deviceType.map((c, i) => (
+              <MenuItem value={c.name}>{c.name}</MenuItem>
+            ))}
           </Select>
         </FormControl>
 
@@ -154,9 +154,9 @@ export default function InitialIntake() {
             onChange={() => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {categories[5].deviceType.map((c, i) => (
+              <MenuItem value={c.name}>{c.name}</MenuItem>
+            ))}
           </Select>
         </FormControl>
       </div>
