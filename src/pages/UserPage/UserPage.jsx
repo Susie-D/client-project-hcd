@@ -23,10 +23,10 @@ function UserPage() {
           Devices/Items
         </NavLink>
         <br />
-        <NavLink className="nav-link" to="/info">
-          Items
+        <NavLink className="nav-link" to="/devices">
+          Devices
           <br />
-          Report
+          List
         </NavLink>
       </div>
     </PageLayout>

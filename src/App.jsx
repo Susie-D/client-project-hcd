@@ -16,6 +16,7 @@ import {
   LoginPage,
   SignUpPage,
   UserPage,
+  DevicesList,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -62,6 +63,15 @@ function App() {
           <ProtectedRoute exact path="/info">
             <InfoPage />
           </ProtectedRoute>
+//! new
+          <ProtectedRoute
+            // logged in shows DevicesList else shows LoginPage
+            exact
+            path="/devices"
+          >
+            <DevicesList />
+          </ProtectedRoute>
+//! new
 
           <ProtectedRoute exact path="/initial-intake">
             <InitialIntake />
