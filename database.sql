@@ -77,7 +77,7 @@ INSERT INTO "devices" ("device_types_id", "brand", "model", "serial_number", "ma
            
            ('2', 'Trane', 'S9V2B040D3PSCA', 'JHY1234-4321', '2024-06-10', '2025-06-01', 'laundry Room', 'https://imgur.com/a/I1bjKMf', '2008-01-01', '2009-01-10', '3', FALSE),
            
-           ('3', 'Delta', 'Lorelai', '95B932-32S', '2024-07-17', '2025-07-17', 'Kitchen', 'https://imgur.com/a/I1bjKMf', '08/08/2017', '09/09/2019', '4', FALSE );
+           ('3', 'Delta', 'Lorelai', '95B932-32S', '2024-07-17', '2025-07-17', 'Kitchen', 'https://imgur.com/a/I1bjKMf', '08/08/2017', '09/09/2019', '4', FALSE ),
 
             ('1', 'LG', 'LFX25950', 'LFX25950-123456', '2024-06-14', '2025-06-14', 'Kitchen', 'https://static-data2.manualslib.com/product-images/07a/2038183/lg-lupxc2386n-refrigerator.jpg', '2018-01-15', '2018-01-20', '6', FALSE),
     
