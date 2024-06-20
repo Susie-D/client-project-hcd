@@ -104,7 +104,7 @@ function App() {
           </Route>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows furnace-main-intake else shows LoginPage
             exact
             path="/furnace-main-intake"
           >
@@ -112,7 +112,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows fridge-main-intake else shows LoginPage
             exact
             path="/fridge-main-intake"
           >
@@ -120,7 +120,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows Under_Sink-main-intake else shows LoginPage
             exact
             path="/Under_Sink-main-intake"
           >
@@ -128,7 +128,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows Gutters_n_Spouts-main-intake else shows LoginPage
             exact
             path="/Gutters_n_Spouts-main-intake"
           >
