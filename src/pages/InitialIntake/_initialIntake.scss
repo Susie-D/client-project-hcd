@@ -2,7 +2,13 @@
 
 .initial-intake {
   &-container {
-    margin: $margin-xl;
+    margin: 0 30%;
+    @media only screen and (max-width: 600px) {
+      margin: 0 20%;
+    }
+    @media only screen and (max-width: 360px) {
+      margin: 0 10%;
+    }
   }
 }
 

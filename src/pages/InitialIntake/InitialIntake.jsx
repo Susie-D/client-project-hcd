@@ -6,36 +6,48 @@ import './_initialIntake.scss';
 import '../../styles/_styles.scss';
 
 export default function InitialIntake() {
-  const { age, setAge } = useState('');
+  const [deviceTypeName, setDeviceTypeName] = useState({});
+  const [selectedDropdown, setSelectedDropdown] = useState('');
 
   const handleChange = (e) => {
-    preventDefault(e);
-    console.log(e.target.age);
+    const { value, name } = e.target;
+    setDeviceTypeName({
+      ...deviceTypeName,
+      [name]: value,
+    });
+    if (value) {
+      setSelectedDropdown(name);
+    } else {
+      setSelectedDropdown('');
+    }
   };
 
   return (
     <PageLayout>
       <div className="initial-intake-container column ac-center">
-        <FormControl fullWidth style={{ marginTop: '30px' }}>
+        <FormControl fullWidth style={{ marginTop: '10px' }}>
           <InputLabel
             style={{
               fontWeight: 'bold',
-              margin: '0 15%',
+              margin: '0 40%',
             }}
             id="select-label"
           >
-            Heating-Ventilating-AC
+            HVAC
           </InputLabel>
           <Select
             labelId="select-label"
             id="select"
-            value={e.target.value}
-            label="hvac"
+            value={deviceTypeName?.hvac || ''}
+            name="hvac"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            disabled={selectedDropdown && selectedDropdown !== 'hvac'}
           >
             {categories[0].deviceType.map((c, i) => (
-              <MenuItem value={c.name}>{c.name}</MenuItem>
+              <MenuItem value={c.name} label={c.name}>
+                {c.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -53,8 +65,8 @@ export default function InitialIntake() {
           <Select
             labelId="select-label"
             id="select"
-            value={age}
-            label="appliance"
+            value={deviceTypeName?.appliance || ''}
+            name="appliance"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
@@ -77,8 +89,8 @@ export default function InitialIntake() {
           <Select
             labelId="select-label"
             id="select"
-            value={age}
-            label="plumbing"
+            value={deviceTypeName?.plumbing || ''}
+            name="plumbing"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
@@ -101,8 +113,8 @@ export default function InitialIntake() {
           <Select
             labelId="select-label"
             id="select"
-            value={age}
-            label="safety"
+            value={deviceTypeName?.safety || ''}
+            name="safety"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
@@ -125,8 +137,8 @@ export default function InitialIntake() {
           <Select
             labelId="select-label"
             id="select"
-            value={age}
-            label="structure"
+            value={deviceTypeName?.structure || ''}
+            name="structure"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
@@ -149,9 +161,9 @@ export default function InitialIntake() {
           <Select
             labelId="select-label"
             id="select"
-            value={age}
-            label="Age"
-            onChange={() => handleChange(e)}
+            value={deviceTypeName?.landscape || ''}
+            name="landscape"
+            onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
             {categories[5].deviceType.map((c, i) => (
