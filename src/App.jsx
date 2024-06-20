@@ -12,6 +12,7 @@ import ProtectedRoute from './route/ProtectedRoute/ProtectedRoute.jsx';
 import {
   AboutPage,
   InfoPage,
+  InitialIntake,
   LoginPage,
   SignUpPage,
   UserPage,
@@ -19,6 +20,7 @@ import {
   FridgeIntakePage,
   Under_SinkIntakePage,
   Gutters_n_SpoutsPage,
+  DevicesList,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -62,12 +64,21 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
+          <ProtectedRoute exact path="/info">
             <InfoPage />
+          </ProtectedRoute>
+//! new
+          <ProtectedRoute
+            // logged in shows DevicesList else shows LoginPage
+            exact
+            path="/devices"
+          >
+            <DevicesList />
+          </ProtectedRoute>
+//! new
+
+          <ProtectedRoute exact path="/initial-intake">
+            <InitialIntake />
           </ProtectedRoute>
 
           <Route exact path="/login">

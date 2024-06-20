@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import './_signUpForm.scss';
 
 function SignUpForm() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -14,6 +18,9 @@ function SignUpForm() {
     dispatch({
       type: 'REGISTER',
       payload: {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
         username: username,
         password: password,
       },
@@ -29,6 +36,38 @@ function SignUpForm() {
         </h3>
       )}
       <div className="column">
+        <div className="row wrap jc-space-between">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            className="grid-col_5 text-m"
+            value={firstName}
+            required
+            onChange={(event) => setFirstName(event.target.value)}
+          />
+
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            className="grid-col_5 text-m"
+            value={lastName}
+            required
+            onChange={(event) => setLastName(event.target.value)}
+          />
+        </div>
+
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          className="row text-m"
+          value={email}
+          required
+          onChange={(event) => setEmail(event.target.value)}
+        />
+
         <input
           type="text"
           name="username"
@@ -38,8 +77,7 @@ function SignUpForm() {
           required
           onChange={(event) => setUsername(event.target.value)}
         />
-      </div>
-      <div className="column">
+
         <input
           type="password"
           name="password"

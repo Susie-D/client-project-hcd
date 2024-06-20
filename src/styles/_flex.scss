@@ -15,11 +15,16 @@
 
 .ac-center {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .jc-space-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
 }
