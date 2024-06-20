@@ -1,5 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { PageLayout } from '../pages';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Logo from '../../assets/HouseCheckup.svg?react';
 import '../../styles/_styles.scss';
 
@@ -8,7 +10,7 @@ import IntakeFormBase from '../../components/IntakeForm/IntakeFormBase';
 
 function FurnaceIntakePage() {
     const history = useHistory();
-
+    const dispatch = useDispatch();
 
 
   return (

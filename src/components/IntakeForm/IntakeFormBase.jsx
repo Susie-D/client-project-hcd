@@ -6,33 +6,58 @@ import './_intakeForm.scss';
 function IntakeFormBase (){
     // const dispatch = useDispatch();
     const history = useHistory();
+    const dispatch = useDispatch();
+    const user = useSelector(store => store.user);
      
     // Defining a local state to store the user's new crush
     const [brand , setBrand] = useState('');
     const [model_number , setModel_number] = useState('');
     const [serial_number , setSerial_number] = useState('');
     const [location , setLocation] = useState(''); 
-      // const [img_url , setImg_url] = useState('');
+    const [img_url , setImg_url] = useState('');
     const [manufacture_date , setManufacture_date] = useState('');
-    const [install_date, setInstall_date] = useState(''); 
+    const [install_date, setInstall_date] = useState('');
+    const [device_type, setDevice_type] = useState('1'); 
 
      const AddDevice = () => {
       const device = {
-        // "device_types_id" INT REFERENCES "device_types" NOT NULL,
+        device_type,
         brand,
         model_number,
         serial_number,
         location,
-        // img_url,
+        img_url,
         manufacture_date,
         install_date,
-        // user_id: userId,
+        user_id: user.id,
       }
      // need to use AddDevice const and  onSubmit={nextPage} on line 39
 
      // no dispatch, store in SAGA until view 3
 
       console.log('Wheres my device?', device)
+    }
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const device = {
+        device_type,
+        brand,
+        model_number,
+        serial_number,
+        location,
+        img_url,
+        manufacture_date,
+        install_date,
+        user_id: user.id,
+      }
+      dispatch({
+        type: 'ADD_DEVICE',
+        payload: {
+          device: device
+        },
+      });
+      //history.push('/nextPage'); // Navigate to the next page if needed
     }
 
     return (
@@ -114,6 +139,7 @@ function IntakeFormBase (){
             required
             onChange={(event) => setInstall_date(event.target.value)}
           />
+          <button type="submit" onClick={(event) => handleSubmit(event)}>Submit</button>
         </div>    
       </form>
     );
