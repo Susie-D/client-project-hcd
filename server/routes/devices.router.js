@@ -8,14 +8,14 @@ const router = express.Router();
 
 
 //TODO we need to change around the SQL so that we JOIN both tables "user" & "device_types". We are looking to get the device_types.name for the correspoonding user.id 
-//! START ---------------
+//! START --------------- GET ALL BY USER ID
   router.get('/:id', (req, res) => {
     const userId = req.params.id;
     const query = `
-      SELECT "device_types"."username"
-      FROM "device_types"
-      JOIN "user" ON "user"."name" = "device_types"."username"
-      WHERE "user"."id" = $1;
+      SELECT a.*, b.name
+      FROM devices a
+      INNER JOIN device_types b
+      ON a.device_types_id = b.id;
     `;
     const values = [userId];
   
@@ -38,6 +38,7 @@ const router = express.Router();
 
 
 //* VERY HAPPY WITH THIS
+//! Getting Device by Device ID
 
 router.get('/', (req, res) => {
   const query = `
@@ -62,7 +63,7 @@ router.post('/', (req, res) => {
 });
 
 //* VERY HAPPY WITH THIS
-
+//! END ---------------
 
 
 module.exports = router;
