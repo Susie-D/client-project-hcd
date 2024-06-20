@@ -7,7 +7,9 @@ const router = express.Router();
  */
 
 
-//TODO --- PURPOSE: Specific Device page by ID
+//TODO --- PURPOSE: GET Specific Device page by user id
+//! NEEDS to fil
+
 //! START --------------- GET ALL BY USER ID
   router.get('/:id', (req, res) => {
     const userId = req.params.id;
@@ -37,15 +39,19 @@ const router = express.Router();
 
 
 
-//TODO --- PURPOSE: get all for specific user. 
+//TODO --- PURPOSE: get all devices for specific user. 
+//! NEEDS SQL CHANGE
 //! Getting Device by Device ID
 
 router.get('/', (req, res) => {
+  console.log('LOOOOOK AT ME!!!!',req.params.id)
   const query = `
   SELECT "brand", "model", "serial_number", "maintenance_date", 
   "maintenance_due", "location", "img_url", "manufacture_date", 
-  "install_date" 
-  FROM "devices" `  
+  "install_date", "user_id"
+  FROM "devices" 
+  WHERE user_id = $1
+  `;  
   pool.query(query)
 .then((dbResult)=>{
   res.send(dbResult.rows)
@@ -55,6 +61,8 @@ router.get('/', (req, res) => {
 }) // GET route code here 
 });
 
+//! END ---------------
+
 /**
  * POST route template
  */
@@ -62,7 +70,7 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
-//! END ---------------
+
 
 
 module.exports = router;

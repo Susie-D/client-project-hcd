@@ -4,10 +4,10 @@ import DevicesListItem from '../DevicesListItem/DevicesListItem';
 
 function DevicesList() {
     const dispatch = useDispatch();
-    const devicesList = useSelector(store => store.devicesReducer);
+    const devicesList = useSelector(store => store.devicesReducer.deviceItems);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_DEVICES' });
+        dispatch({ type: 'FETCH_DEVICES_BY_USER_ID' });
     }, [dispatch]);
 
     return (
