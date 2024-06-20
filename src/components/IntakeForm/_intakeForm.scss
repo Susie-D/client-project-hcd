@@ -1,0 +1,18 @@
+@import '../../styles/styles';
+
+.intake-form {
+  box-sizing: border-box;
+  width: 400px;
+  max-width: 100%;
+  padding: 25px;
+  margin: 10px auto 30px;
+  &-input {
+    margin: $margin-l 0;
+  }
+  input {
+    margin: 15px 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
+}

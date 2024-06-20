@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS "device_types";
 DROP TABLE IF EXISTS "catagories";
 DROP TABLE IF EXISTS "user";
 
-
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (100) NOT NULL,
@@ -56,12 +55,12 @@ INSERT INTO "device_types" ("name", "catagory_id")
 CREATE TABLE "devices" (
     "id" SERIAL PRIMARY KEY,
     "device_types_id" INT REFERENCES "device_types" NOT NULL,
+    "location" VARCHAR,
     "brand" VARCHAR,
-    "model" VARCHAR,
+    "model_number" VARCHAR,
     "serial_number" VARCHAR,
     "maintenance_date" VARCHAR,
     "maintenance_due" VARCHAR,
-    "location" VARCHAR,
     "img_url" VARCHAR,
     "manufacture_date" VARCHAR,
     "install_date" VARCHAR,
