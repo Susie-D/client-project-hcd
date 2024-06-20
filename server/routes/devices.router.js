@@ -7,59 +7,56 @@ const router = express.Router();
  */
 
 
-//TODO --- PURPOSE: GET Specific Device page by user id
-//! NEEDS to fil
-
-//! START --------------- GET ALL BY USER ID
-  router.get('/:id', (req, res) => {
-    const userId = req.params.id;
-    const query = `
+//! START --------------- GET ALL BY ALL USERS
+router.get('/', (req, res) => {
+  const query = `
       SELECT a.*, b.name
       FROM devices a
       INNER JOIN device_types b
-      ON a.device_types_id = b.id;
+      ON a.device_types_id = b.id
+
     `;
-    const values = [userId];
-  
-    pool.query(query, values)
-      .then((dbResult) => {
-        res.send(dbResult.rows);
-      })
-      .catch((error) => {
-        console.log("THIS IS AN ERROR", error);
-        res.sendStatus(500);
-      });
-  });
+  pool.query(query)
+    .then((dbResult) => {
+      res.send(dbResult.rows);
+    })
+    .catch((error) => {
+      console.log("THIS IS AN ERROR", error);
+      res.sendStatus(500);
+    });
+});
 
 //! END ---------------
 
 
 
 
+// PURPOSE: get all devices for specific user. 
 
-
-
-//TODO --- PURPOSE: get all devices for specific user. 
-//! NEEDS SQL CHANGE
-//! Getting Device by Device ID
-
-router.get('/', (req, res) => {
-  console.log('LOOOOOK AT ME!!!!',req.params.id)
+router.get('/:id', (req, res) => {
   const query = `
   SELECT "brand", "model", "serial_number", "maintenance_date", 
   "maintenance_due", "location", "img_url", "manufacture_date", 
   "install_date", "user_id"
   FROM "devices" 
   WHERE user_id = $1
-  `;  
-  pool.query(query)
-.then((dbResult)=>{
-  res.send(dbResult.rows)
-})
-.catch((error)=> {
-  console.log("THIS IS AN ERROR", error);
-}) // GET route code here 
+  `;
+  pool.query(query, [req.params.id])
+    .then((dbResult) => {
+      res.send(dbResult.rows)
+    })
+    .catch((error) => {
+      console.log("THIS IS AN ERROR", error);
+    }) // GET route code here 
 });
+
+//! END ---------------
+
+
+// PURPOSE: get ONE DEVICE (from a user) by DEVICE ID. 
+// router.get('/:id', (req, res) => {
+
+// });
 
 //! END ---------------
 
