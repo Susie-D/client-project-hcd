@@ -66,6 +66,15 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+//! new
+          <ProtectedRoute
+            // logged in shows DevicesList else shows LoginPage
+            exact
+            path="/devices"
+          >
+            <DevicesList />
+          </ProtectedRoute>
+//! new
 
           <Route exact path="/login">
             {user.id ? (
