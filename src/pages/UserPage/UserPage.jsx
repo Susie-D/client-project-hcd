@@ -5,30 +5,30 @@ import { PageLayout } from '../pages';
 import './UserPage.scss';
 
 function UserPage() {
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
 
   return (
     <PageLayout>
-    <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <NavLink className="nav-link" to="/info">
-        Tutorial &
+      <div className="container">
+        <h2>Welcome, {user.username}!</h2>
+        <NavLink className="nav-link" to="/info">
+          Tutorial &
+          <br />
+          Helpful Links
+        </NavLink>
         <br />
-         Helpful Links
-      </NavLink>
-      <br />
-      <NavLink className="nav-link" to="/info">
-        Add 
+        <NavLink className="nav-link" to="/initial-intake">
+          Add
+          <br />
+          Devices/Items
+        </NavLink>
         <br />
-        Devices/Items
-      </NavLink>
-      <br />
-      <NavLink className="nav-link" to="/devices">
-        Devices 
-        <br />
-        List
-      </NavLink>
-    </div>
+        <NavLink className="nav-link" to="/devices">
+          Devices
+          <br />
+          List
+        </NavLink>
+      </div>
     </PageLayout>
   );
 }
