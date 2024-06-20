@@ -1,0 +1,23 @@
+@import '../../styles/styles';
+
+.initial-intake {
+  &-container {
+    margin: 0 30%;
+    @media only screen and (max-width: 600px) {
+      margin: 0 20%;
+    }
+    @media only screen and (max-width: 360px) {
+      margin: 0 10%;
+    }
+  }
+}
+
+label#select-label {
+  color: $dark;
+  font-size: $text-s;
+}
+
+div#select {
+  text-align: center;
+  padding: none;
+}

@@ -18,8 +18,8 @@ function SignUpForm() {
     dispatch({
       type: 'REGISTER',
       payload: {
-        firstName: firstName,
-        lastName: lastName,
+        first_name: firstName,
+        last_name: lastName,
         email: email,
         username: username,
         password: password,

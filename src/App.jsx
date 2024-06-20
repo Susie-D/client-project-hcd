@@ -12,6 +12,7 @@ import ProtectedRoute from './route/ProtectedRoute/ProtectedRoute.jsx';
 import {
   AboutPage,
   InfoPage,
+  InitialIntake,
   LoginPage,
   SignUpPage,
   UserPage,
@@ -59,11 +60,7 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
+          <ProtectedRoute exact path="/info">
             <InfoPage />
           </ProtectedRoute>
 //! new
@@ -75,6 +72,10 @@ function App() {
             <DevicesList />
           </ProtectedRoute>
 //! new
+
+          <ProtectedRoute exact path="/initial-intake">
+            <InitialIntake />
+          </ProtectedRoute>
 
           <Route exact path="/login">
             {user.id ? (
