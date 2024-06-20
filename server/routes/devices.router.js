@@ -7,7 +7,7 @@ const router = express.Router();
  */
 
 
-//TODO we need to change around the SQL so that we JOIN both tables "user" & "device_types". We are looking to get the device_types.name for the correspoonding user.id 
+//TODO --- PURPOSE: Specific Device page by ID
 //! START --------------- GET ALL BY USER ID
   router.get('/:id', (req, res) => {
     const userId = req.params.id;
@@ -37,7 +37,7 @@ const router = express.Router();
 
 
 
-//* VERY HAPPY WITH THIS
+//TODO --- PURPOSE: get all for specific user. 
 //! Getting Device by Device ID
 
 router.get('/', (req, res) => {
@@ -62,7 +62,6 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
-//* VERY HAPPY WITH THIS
 //! END ---------------
 
 
