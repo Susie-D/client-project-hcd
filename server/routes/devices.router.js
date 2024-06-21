@@ -2,8 +2,6 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-<<<<<<< HEAD
-=======
 router.post('/', (req, res) => {
     console.log('REQUEST BODY: ', req.body)
     const device_types_id = req.body.device.device_type;
@@ -32,7 +30,6 @@ router.post('/', (req, res) => {
  * GET route template
  */
 
->>>>>>> main
 
 //! START --------------- GET ALL BY ALL USERS
 router.get('/', (req, res) => {
