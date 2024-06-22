@@ -6,7 +6,7 @@ export const categories = [
                 name: 'Air Conditioner',
             },
             {
-                name: 'Air Conditioner (Portable)',
+                name: 'Air Conditioner Portable',
             },
             {
                 name: 'Air Exchanger',
@@ -18,7 +18,7 @@ export const categories = [
                 name: 'Dehumidifier',
             },
             {
-                name: 'Dehumidifier (Portable)',
+                name: 'Dehumidifier Portable',
             },
             {
                 name: 'Furnace',
@@ -30,7 +30,7 @@ export const categories = [
                 name: 'Air Purifier',
             },
             {
-                name: 'Air Purifier (Portable)',
+                name: 'Air Purifier Portable',
             },
             {
                 name: 'Air Filter Supplemental',
@@ -62,7 +62,7 @@ export const categories = [
                 name: 'Microwave',
             },
             {
-                name: 'Microwave (Portable)',
+                name: 'Microwave Portable',
             },
             {
                 name: 'Oven',
