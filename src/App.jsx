@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Nav, Footer } from './components/components.jsx';
 import ProtectedRoute from './route/ProtectedRoute/ProtectedRoute.jsx';
 import {
   AboutPage,

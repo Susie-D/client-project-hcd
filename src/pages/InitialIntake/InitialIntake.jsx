@@ -195,7 +195,7 @@ export default function InitialIntake() {
         <div className="row jc-space-between">
           <button
             className="btn_sizeMin one text-xxs"
-            onClick={() => history.push('/initial-intake')}
+            onClick={() => window.location.reload()}
           >
             Reselect Device Type
           </button>
@@ -203,7 +203,7 @@ export default function InitialIntake() {
             className="btn_sizeMin two text-xxs"
             onClick={() => history.push('/main-intake')}
           >
-            Select
+            Continue
           </button>
         </div>
       </div>
