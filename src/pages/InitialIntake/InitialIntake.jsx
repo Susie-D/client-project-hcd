@@ -5,11 +5,15 @@ import { categories } from '../../data/categories';
 import './_initialIntake.scss';
 import '../../styles/_styles.scss';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function InitialIntake() {
   const [deviceTypeName, setDeviceTypeName] = useState({});
   const [selectedDropdown, setSelectedDropdown] = useState(false);
+  const intakeDevice = useSelector((store) => store.devicesReducer.deviceType);
+
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -19,9 +23,19 @@ export default function InitialIntake() {
     });
     if (value) {
       setSelectedDropdown(name);
+      console.log('value', value);
+      dispatch({
+        type: 'FETCH_DEVICE_TYPE',
+        payload: value,
+      });
     } else {
       setSelectedDropdown('');
     }
+  };
+
+  const routeToMainIntake = () => {
+    console.log('intake device', intakeDevice);
+    history.push(`/${intakeDevice}`);
   };
 
   return (
@@ -33,7 +47,6 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '10px' }}>
           <InputLabel
             style={{
-              fontWeight: 'bold',
               margin: '0 40%',
             }}
             id="select-label"
@@ -46,11 +59,23 @@ export default function InitialIntake() {
             value={deviceTypeName?.hvac || ''}
             name="hvac"
             onChange={(e) => handleChange(e)}
-            style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            style={{
+              borderRadius: '10em',
+              backgroundColor: '#a9d09e',
+              color: ' #032e45',
+              fontWeight: 'bold',
+            }}
             disabled={selectedDropdown && selectedDropdown !== 'hvac'}
           >
             {categories[0].deviceType.map((c, i) => (
-              <MenuItem key={c.name} value={c.name} label={c.name}>
+              <MenuItem
+                style={{
+                  color: c.name === 'Furnace' ? 'red' : 'black',
+                }}
+                key={c.name}
+                value={c.name}
+                label={c.name}
+              >
                 {c.name}
               </MenuItem>
             ))}
@@ -60,7 +85,6 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              fontWeight: 'bold',
               margin: '0 33%',
             }}
             id="select-label"
@@ -73,11 +97,22 @@ export default function InitialIntake() {
             value={deviceTypeName?.appliance || ''}
             name="appliance"
             onChange={(e) => handleChange(e)}
-            style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            style={{
+              borderRadius: '10em',
+              backgroundColor: '#a9d09e',
+              color: ' #032e45',
+              fontWeight: 'bold',
+            }}
             disabled={selectedDropdown && selectedDropdown !== 'appliance'}
           >
             {categories[1].deviceType.map((c, i) => (
-              <MenuItem key={c.name} value={c.name}>
+              <MenuItem
+                style={{
+                  color: c.name === 'Refrigerator' ? 'red' : 'black',
+                }}
+                key={c.name}
+                value={c.name}
+              >
                 {c.name}
               </MenuItem>
             ))}
@@ -87,7 +122,6 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              fontWeight: 'bold',
               margin: '0 33%',
             }}
             id="select-label"
@@ -100,11 +134,22 @@ export default function InitialIntake() {
             value={deviceTypeName?.plumbing || ''}
             name="plumbing"
             onChange={(e) => handleChange(e)}
-            style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            style={{
+              borderRadius: '10em',
+              backgroundColor: '#a9d09e',
+              color: ' #032e45',
+              fontWeight: 'bold',
+            }}
             disabled={selectedDropdown && selectedDropdown !== 'plumbing'}
           >
             {categories[2].deviceType.map((c, i) => (
-              <MenuItem key={c.name} value={c.name}>
+              <MenuItem
+                style={{
+                  color: c.name === 'Undersink Inspection' ? 'red' : 'black',
+                }}
+                key={c.name}
+                value={c.name}
+              >
                 {c.name}
               </MenuItem>
             ))}
@@ -114,7 +159,6 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              fontWeight: 'bold',
               margin: '0 38%',
             }}
             id="select-label"
@@ -127,7 +171,12 @@ export default function InitialIntake() {
             value={deviceTypeName?.safety || ''}
             name="safety"
             onChange={(e) => handleChange(e)}
-            style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            style={{
+              borderRadius: '10em',
+              backgroundColor: '#a9d09e',
+              color: ' #032e45',
+              fontWeight: 'bold',
+            }}
             disabled={selectedDropdown && selectedDropdown !== 'safety'}
           >
             {categories[3].deviceType.map((c, i) => (
@@ -142,7 +191,6 @@ export default function InitialIntake() {
           <InputLabel
             style={{
               margin: '0 35%',
-              fontWeight: 'bold',
             }}
             id="select-label"
           >
@@ -154,11 +202,22 @@ export default function InitialIntake() {
             value={deviceTypeName?.structure || ''}
             name="structure"
             onChange={(e) => handleChange(e)}
-            style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            style={{
+              borderRadius: '10em',
+              backgroundColor: '#a9d09e',
+              color: ' #032e45',
+              fontWeight: 'bold',
+            }}
             disabled={selectedDropdown && selectedDropdown !== 'structure'}
           >
             {categories[4].deviceType.map((c, i) => (
-              <MenuItem key={c.name} value={c.name}>
+              <MenuItem
+                style={{
+                  color: c.name === 'Gutters and Downspouts' ? 'red' : 'black',
+                }}
+                key={c.name}
+                value={c.name}
+              >
                 {c.name}
               </MenuItem>
             ))}
@@ -169,7 +228,6 @@ export default function InitialIntake() {
           <InputLabel
             style={{
               margin: '0 33%',
-              fontWeight: 'bold',
             }}
             id="select-label"
           >
@@ -181,7 +239,12 @@ export default function InitialIntake() {
             value={deviceTypeName?.landscape || ''}
             name="landscape"
             onChange={(e) => handleChange(e)}
-            style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            style={{
+              borderRadius: '10em',
+              backgroundColor: '#a9d09e',
+              color: ' #032e45',
+              fontWeight: 'bold',
+            }}
             disabled={selectedDropdown && selectedDropdown !== 'landscape'}
           >
             {categories[5].deviceType.map((c, i) => (
@@ -197,11 +260,11 @@ export default function InitialIntake() {
             className="btn_sizeMin one text-xxs"
             onClick={() => window.location.reload()}
           >
-            Reselect Device Type
+            Reselect
           </button>
           <button
             className="btn_sizeMin two text-xxs"
-            onClick={() => history.push('/main-intake')}
+            onClick={() => routeToMainIntake()}
           >
             Continue
           </button>
