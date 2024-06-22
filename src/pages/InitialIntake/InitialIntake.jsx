@@ -42,10 +42,9 @@ export default function InitialIntake() {
             name="hvac"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
-            disabled={selectedDropdown && selectedDropdown !== 'hvac'}
           >
             {categories[0].deviceType.map((c, i) => (
-              <MenuItem value={c.name} label={c.name}>
+              <MenuItem key={c.name} value={c.name} label={c.name}>
                 {c.name}
               </MenuItem>
             ))}
@@ -71,7 +70,9 @@ export default function InitialIntake() {
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
             {categories[1].deviceType.map((c, i) => (
-              <MenuItem value={c.name}>{c.name}</MenuItem>
+              <MenuItem key={c.name} value={c.name}>
+                {c.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -95,7 +96,9 @@ export default function InitialIntake() {
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
             {categories[2].deviceType.map((c, i) => (
-              <MenuItem value={c.name}>{c.name}</MenuItem>
+              <MenuItem key={c.name} value={c.name}>
+                {c.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -119,7 +122,9 @@ export default function InitialIntake() {
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
             {categories[3].deviceType.map((c, i) => (
-              <MenuItem value={c.name}>{c.name}</MenuItem>
+              <MenuItem key={c.name} value={c.name}>
+                {c.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -143,7 +148,9 @@ export default function InitialIntake() {
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
             {categories[4].deviceType.map((c, i) => (
-              <MenuItem value={c.name}>{c.name}</MenuItem>
+              <MenuItem key={c.name} value={c.name}>
+                {c.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -167,7 +174,9 @@ export default function InitialIntake() {
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
           >
             {categories[5].deviceType.map((c, i) => (
-              <MenuItem value={c.name}>{c.name}</MenuItem>
+              <MenuItem key={c.name} value={c.name}>
+                {c.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>
