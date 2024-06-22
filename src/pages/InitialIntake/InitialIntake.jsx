@@ -4,10 +4,12 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { categories } from '../../data/categories';
 import './_initialIntake.scss';
 import '../../styles/_styles.scss';
+import { useHistory } from 'react-router-dom';
 
 export default function InitialIntake() {
   const [deviceTypeName, setDeviceTypeName] = useState({});
-  const [selectedDropdown, setSelectedDropdown] = useState('');
+  const [selectedDropdown, setSelectedDropdown] = useState(false);
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -25,6 +27,9 @@ export default function InitialIntake() {
   return (
     <PageLayout>
       <div className="initial-intake-container column ac-center">
+        <div className="header-two dark">
+          Please select a single device type:
+        </div>
         <FormControl fullWidth style={{ marginTop: '10px' }}>
           <InputLabel
             style={{
@@ -42,6 +47,7 @@ export default function InitialIntake() {
             name="hvac"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            disabled={selectedDropdown && selectedDropdown !== 'hvac'}
           >
             {categories[0].deviceType.map((c, i) => (
               <MenuItem key={c.name} value={c.name} label={c.name}>
@@ -68,6 +74,7 @@ export default function InitialIntake() {
             name="appliance"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            disabled={selectedDropdown && selectedDropdown !== 'appliance'}
           >
             {categories[1].deviceType.map((c, i) => (
               <MenuItem key={c.name} value={c.name}>
@@ -94,6 +101,7 @@ export default function InitialIntake() {
             name="plumbing"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            disabled={selectedDropdown && selectedDropdown !== 'plumbing'}
           >
             {categories[2].deviceType.map((c, i) => (
               <MenuItem key={c.name} value={c.name}>
@@ -120,6 +128,7 @@ export default function InitialIntake() {
             name="safety"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            disabled={selectedDropdown && selectedDropdown !== 'safety'}
           >
             {categories[3].deviceType.map((c, i) => (
               <MenuItem key={c.name} value={c.name}>
@@ -146,6 +155,7 @@ export default function InitialIntake() {
             name="structure"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            disabled={selectedDropdown && selectedDropdown !== 'structure'}
           >
             {categories[4].deviceType.map((c, i) => (
               <MenuItem key={c.name} value={c.name}>
@@ -172,6 +182,7 @@ export default function InitialIntake() {
             name="landscape"
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '10em', backgroundColor: '#a9d09e' }}
+            disabled={selectedDropdown && selectedDropdown !== 'landscape'}
           >
             {categories[5].deviceType.map((c, i) => (
               <MenuItem key={c.name} value={c.name}>
@@ -180,6 +191,21 @@ export default function InitialIntake() {
             ))}
           </Select>
         </FormControl>
+
+        <div className="row jc-space-between">
+          <button
+            className="btn_sizeMin one text-xxs"
+            onClick={() => history.push('/initial-intake')}
+          >
+            Reselect Device Type
+          </button>
+          <button
+            className="btn_sizeMin two text-xxs"
+            onClick={() => history.push('/main-intake')}
+          >
+            Select
+          </button>
+        </div>
       </div>
     </PageLayout>
   );
