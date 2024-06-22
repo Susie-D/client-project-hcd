@@ -34,7 +34,6 @@ export default function InitialIntake() {
   };
 
   const routeToMainIntake = () => {
-    console.log('intake device', intakeDevice);
     const createDevicePath = intakeDevice.split(' ').join('-').toLowerCase();
     history.push(`/${createDevicePath}-intake`);
   };
