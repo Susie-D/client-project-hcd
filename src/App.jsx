@@ -42,7 +42,6 @@ function App() {
         <Switch>
           {/* Visiting localhost:5173 will redirect to localhost:5173/home */}
           <Redirect exact from="/" to="/home" />
-
           {/* Visiting localhost:5173/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
@@ -51,7 +50,6 @@ function App() {
           >
             <AboutPage />
           </Route>
-
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:5173/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -59,15 +57,14 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/home"
           >
             <UserPage />
           </ProtectedRoute>
-
           <ProtectedRoute exact path="/info">
             <InfoPage />
           </ProtectedRoute>
-//! new
+          //! new
           <ProtectedRoute
             // logged in shows DevicesList else shows LoginPage
             exact
@@ -75,12 +72,10 @@ function App() {
           >
             <DevicesList />
           </ProtectedRoute>
-//! new
-
+          //! new
           <ProtectedRoute exact path="/initial-intake">
             <InitialIntake />
           </ProtectedRoute>
-
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -91,18 +86,16 @@ function App() {
               <LoginPage />
             )}
           </Route>
-
           <Route exact path="/sign-up">
             {user.id ? (
               // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
+              // redirect them to the /home page
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <SignUpPage />
             )}
           </Route>
-
           <Route exact path="/home">
             {user.id ? (
               // If the user is already logged in,
@@ -113,7 +106,6 @@ function App() {
               <LoginPage />
             )}
           </Route>
-
           <ProtectedRoute
             // logged in shows furnace-main-intake else shows LoginPage
             exact
@@ -121,7 +113,6 @@ function App() {
           >
             <FurnaceIntakePage />
           </ProtectedRoute>
-
           <ProtectedRoute
             // logged in shows fridge-main-intake else shows LoginPage
             exact
@@ -129,7 +120,6 @@ function App() {
           >
             <FridgeIntakePage />
           </ProtectedRoute>
-
           <ProtectedRoute
             // logged in shows Under_Sink-main-intake else shows LoginPage
             exact
@@ -137,7 +127,6 @@ function App() {
           >
             <Under_SinkIntakePage />
           </ProtectedRoute>
-
           <ProtectedRoute
             // logged in shows Gutters_n_Spouts-main-intake else shows LoginPage
             exact
@@ -145,7 +134,6 @@ function App() {
           >
             <Gutters_n_SpoutsPage />
           </ProtectedRoute>
-
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <div className="header-one jc-center">404</div>
