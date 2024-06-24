@@ -1,6 +1,7 @@
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
+import './_devicesListItem.scss';
 
 function DevicesListItem({ device }) {
   const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
@@ -63,19 +64,28 @@ function DevicesListItem({ device }) {
   ];
 
   return (
-    <DataGrid
-      rows={devicesList}
-      columns={columns}
-      initialState={{
-        pagination: {
-          paginationModel: {
-            pageSize: 5,
-          },
-        },
-      }}
-      pageSizeOptions={[5]}
-      enableRowSelectionOnClick
-    />
+    <>
+      {!devicesList ? (
+        <DataGrid
+          rows={devicesList}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 5,
+              },
+            },
+          }}
+          pageSizeOptions={[5]}
+          enableRowSelectionOnClick
+        />
+      ) : (
+        <div className="device-message header-four">
+          You currently have no devices, please start the device intake to add
+          your home devices.
+        </div>
+      )}
+    </>
   );
 }
 

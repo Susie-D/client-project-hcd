@@ -17,7 +17,7 @@ export default function MobileNav() {
         <MenuIcon
           fontSize="medium"
           className="dropdown-toggle"
-          style={{ margin: `0.5em 0.75em 0em 0.5em` }}
+          style={{ margin: `0.5em 0em 0em 0.5em` }}
           onClick={() => setMenuOpen(!menuOpen)}
         />
         <>
