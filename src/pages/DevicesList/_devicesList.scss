@@ -1,5 +1,19 @@
 @import '../../styles/styles';
 
+.device-list {
+  &-container {
+    & .header-three {
+      margin-top: 2em;
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2.5rem;
+    }
+  }
+}
+
 .MuiDataGrid-columnHeader.MuiDataGrid-columnHeader--sortable.MuiDataGrid-withBorderColor {
   background: $tertiary;
   word-wrap: break-word !important;

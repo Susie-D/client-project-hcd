@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import DevicesListItem from '../../components/DevicesListItem/DevicesListItem';
+import { DevicesListItem } from '../../components/components';
+import { PageLayout } from '../pages';
 import Box from '@mui/material/Box';
 import './_devicesList.scss';
 
@@ -12,18 +13,20 @@ function DevicesList() {
   }, [dispatch]);
 
   return (
-    <div className="container">
-      <div className="header-three">Devices List 😄</div>
-      <Box
-        sx={{
-          height: '100%',
-          width: '100%',
-          marginTop: '2em',
-          fontSize: '8px',
-        }}
-      >
-        <DevicesListItem />
-      </Box>
+    <div className="device-list-container">
+      <PageLayout>
+        <div className="header-three jc-center">Devices List 😄</div>
+        <Box
+          sx={{
+            height: '100%',
+            width: '100%',
+            marginTop: '2em',
+            fontSize: '8px',
+          }}
+        >
+          <DevicesListItem />
+        </Box>
+      </PageLayout>
     </div>
   );
 }
