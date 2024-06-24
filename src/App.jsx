@@ -20,6 +20,7 @@ import {
   Under_SinkIntakePage,
   Gutters_n_SpoutsPage,
   DevicesList,
+  DeviceProfile,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -71,6 +72,14 @@ function App() {
             <DevicesList />
           </ProtectedRoute>
           //! new
+          <ProtectedRoute
+            // logged in shows DeviceProfile else shows LoginPage
+            exact
+            path="/device-profile"
+          >
+            <DeviceProfile />
+          </ProtectedRoute>
+
           <ProtectedRoute exact path="/initial-intake">
             <InitialIntake />
           </ProtectedRoute>
