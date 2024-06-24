@@ -23,7 +23,6 @@ export default function InitialIntake() {
     });
     if (value) {
       setSelectedDropdown(name);
-      console.log('value', value);
       dispatch({
         type: 'FETCH_DEVICE_TYPE',
         payload: value,
