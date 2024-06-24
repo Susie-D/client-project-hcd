@@ -21,6 +21,7 @@ import {
   Gutters_n_SpoutsPage,
   DevicesList,
   DeviceProfile,
+  DeviceHowToVideos,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -79,6 +80,16 @@ function App() {
           >
             <DeviceProfile />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows DeviceProfile else shows LoginPage
+            exact
+            path="/device-how-to-videos"
+          >
+            <DeviceHowToVideos />
+          </ProtectedRoute>
+
+
 
           <ProtectedRoute exact path="/initial-intake">
             <InitialIntake />
