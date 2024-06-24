@@ -10,9 +10,6 @@ function SignUpPage() {
   return (
     <PageLayout>
       <div className="signUp-container">
-        <div className="row jc-center">
-          <Logo />
-        </div>
         <SignUpForm />
         <div className="row jc-center">
           <p className="text-s">Have an account?&nbsp;&nbsp;</p>

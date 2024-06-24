@@ -55,7 +55,7 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/home"
           >
             <UserPage />
           </ProtectedRoute>
@@ -87,8 +87,8 @@ function App() {
           <Route exact path="/sign-up">
             {user.id ? (
               // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
+              // redirect them to the /home page
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <SignUpPage />
