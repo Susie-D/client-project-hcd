@@ -40,7 +40,7 @@ export default function InitialIntake() {
   return (
     <PageLayout>
       <div className="initial-intake-container column ac-center">
-        <div className="header-two dark">
+        <div className="header-three dark">
           Please select a single device type:
         </div>
         <FormControl fullWidth style={{ marginTop: '10px' }}>

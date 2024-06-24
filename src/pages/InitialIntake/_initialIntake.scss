@@ -9,7 +9,7 @@
     @media only screen and (max-width: 360px) {
       margin: 0 10%;
     }
-    & .header-two {
+    & .header-three {
       text-align: center;
     }
   }
@@ -26,8 +26,8 @@ div#select {
 }
 
 .btn_sizeMin {
-  margin: $margin-m;
-  width: 14em;
+  margin: $margin-xs;
+  width: 12em;
   font-weight: bold;
   letter-spacing: 1.15px;
   &.one {
