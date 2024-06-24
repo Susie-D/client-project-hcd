@@ -3,14 +3,12 @@ import { combineReducers } from "redux";
 const devicesReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_DEVICES':
-            console.log('THIS IS MY ACTION.PAYLOAD',action.payload)
+            console.log('THIS IS MY ACTION.PAYLOAD', action.payload)
             return action.payload;
         default:
             return state;
     }
-  };  
-
-
+};
 
 const deviceItems = (state = [], action) => {
     switch (action.type) {
@@ -21,8 +19,17 @@ const deviceItems = (state = [], action) => {
     }
 };
 
-  export default combineReducers({
+const deviceType = (state = [], action) => {
+    switch (action.type) {
+        case 'FETCH_DEVICE_TYPE':
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
     devicesReducer,
     deviceItems,
-  });
-  
+    deviceType,
+});
