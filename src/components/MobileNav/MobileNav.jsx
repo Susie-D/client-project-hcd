@@ -25,7 +25,10 @@ export default function MobileNav() {
           <ul className="dropdown-list">
             <div className="test">
               <div className="dropdown-list-icon-close">
-                <CloseIcon onClick={() => setMenuOpen(!menuOpen)} />
+                <CloseIcon
+                  fontSize="xlarge"
+                  onClick={() => setMenuOpen(!menuOpen)}
+                />
               </div>
             </div>
             {user.id && (
@@ -34,11 +37,17 @@ export default function MobileNav() {
                   <Link to="/home">Home</Link>
                 </li>
                 <li>
-                  <Link to="/info">Info Page</Link>
+                  <Link to="/initial-intake">Add Device</Link>
+                </li>
+                <li>
+                  <Link to="/resources">Resources</Link>
+                </li>
+                <li>
+                  <Link to="/reports">Reports</Link>
                 </li>
                 <li>
                   <Link onClick={() => dispatch({ type: 'LOGOUT' })}>
-                    Logout{' '}
+                    Logout
                   </Link>
                 </li>
               </>
