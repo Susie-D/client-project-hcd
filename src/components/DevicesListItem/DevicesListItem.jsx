@@ -65,7 +65,7 @@ function DevicesListItem({ device }) {
 
   return (
     <>
-      {!devicesList ? (
+      {devicesList ? (
         <DataGrid
           rows={devicesList}
           columns={columns}
