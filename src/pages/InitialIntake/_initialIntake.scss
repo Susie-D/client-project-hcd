@@ -9,6 +9,9 @@
     @media only screen and (max-width: 360px) {
       margin: 0 10%;
     }
+    & .header-three {
+      text-align: center;
+    }
   }
 }
 
@@ -20,4 +23,33 @@ label#select-label {
 div#select {
   text-align: center;
   padding: none;
+}
+
+.btn_sizeMin {
+  margin: $margin-xs;
+  width: 12em;
+  font-weight: bold;
+  letter-spacing: 1.15px;
+  &.one {
+    background-color: $caution;
+    border-radius: 5em;
+    border: 1px solid $light;
+    color: $white;
+    &:hover {
+      background-color: $light;
+      color: $dark;
+      border: 1px solid $dark;
+    }
+  }
+  &.two {
+    background-color: $success;
+    border-radius: 5em;
+    border: 1px solid $primary;
+    color: $white;
+    &:hover {
+      background-color: $secondary;
+      color: $dark;
+      border: 1px solid $dark;
+    }
+  }
 }

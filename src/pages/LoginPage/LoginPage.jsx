@@ -11,9 +11,6 @@ function LoginPage() {
   return (
     <PageLayout>
       <div className="login-container">
-        <div className="row jc-center">
-          <Logo />
-        </div>
         <LoginForm />
         <div className="row jc-center">
           <p className="text-s">Need an account?&nbsp;&nbsp;</p>

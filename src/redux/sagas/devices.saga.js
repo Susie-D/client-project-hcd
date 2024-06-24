@@ -1,9 +1,5 @@
 import axios from "axios";
-import { put, takeLatest, takeEvery, select } from "redux-saga/effects";
-
-
-
-
+import { put, takeLatest, select } from "redux-saga/effects";
 
 // not being used. get all devices for all users
 function* fetchDevices() {
@@ -35,6 +31,8 @@ function* fetchDevicesByUserId() {
     console.log('AXIOS | GET items by user error', error)
   }
 }
+
+
 
 
 
