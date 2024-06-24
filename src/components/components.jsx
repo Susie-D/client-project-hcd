@@ -9,3 +9,4 @@ export { default as IntakeFormFridge } from './IntakeForm/IntakeFormFridge';
 export { default as IntakeFormUnder_Sink } from './IntakeForm/IntakeFormUnder_Sink';
 export { default as IntakeFormGutters_n_Spouts } from './IntakeForm/IntakeFormGutters_n_Spouts';
 export { default as SignUpForm } from './SignUpForm/SignUpForm';
+export { default as DevicesListItem } from './DevicesListItem/DevicesListItem';

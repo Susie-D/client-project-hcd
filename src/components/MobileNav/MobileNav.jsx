@@ -1,11 +1,10 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
 import '../../styles/_styles.scss';
 import './_mobileNav.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { LogOutButton } from '../components';
 
 export default function MobileNav() {
   const user = useSelector((store) => store.user);
@@ -46,7 +45,10 @@ export default function MobileNav() {
                   <Link to="/devices">Reports</Link>
                 </li>
                 <li>
-                  <Link onClick={() => dispatch({ type: 'LOGOUT' })}>
+                  <Link
+                    to="/login"
+                    onClick={() => dispatch({ type: 'LOGOUT' })}
+                  >
                     Logout
                   </Link>
                 </li>

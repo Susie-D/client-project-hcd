@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import DevicesListItem from '../DevicesListItem/DevicesListItem';
+import { useDispatch } from 'react-redux';
+import DevicesListItem from '../../components/DevicesListItem/DevicesListItem';
 import Box from '@mui/material/Box';
-import { DataGrid } from '@mui/x-data-grid';
 import './_devicesList.scss';
 
 function DevicesList() {
   const dispatch = useDispatch();
-  const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_DEVICES_BY_USER_ID' });
