@@ -1,4 +1,5 @@
-@import '../styles/colors';
+@import '../styles/_colors';
+@import '../styles/_spacing';
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
@@ -40,11 +41,13 @@ Button
 .btn_sizeMin {
   min-height: 50px;
   min-width: 100px;
+  margin-top: $margin-m;
 }
 
 .btn_sizeSm {
   padding: 10px 15px;
   font-size: 0.8rem;
+  margin-top: $margin-m;
 }
 
 .btn_sizeFull {

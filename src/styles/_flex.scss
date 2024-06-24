@@ -24,6 +24,11 @@
   align-items: center;
 }
 
+.jc-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .wrap {
   display: flex;
   flex-wrap: wrap;

@@ -1,9 +1,5 @@
 import axios from "axios";
-import { put, takeLatest, takeEvery, select } from "redux-saga/effects";
-
-
-
-
+import { put, takeLatest, select } from "redux-saga/effects";
 
 // not being used. get all devices for all users
 function* fetchDevices() {
@@ -50,6 +46,8 @@ function* addDevice(action) {
     console.log('Error with adding device:', error);
   }
 }
+
+
 
 function* DevicesSaga() {
   yield takeLatest("FETCH_DEVICES", fetchDevices); // not being used. get all devices for all users
