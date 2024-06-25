@@ -1,3 +1,4 @@
+CREATE DATABASE hcd
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
@@ -101,21 +102,18 @@ CREATE TABLE "additional_device_info" (
     "id" SERIAL PRIMARY KEY,
     "devices_id" INT REFERENCES "devices" NOT NULL,
     "properties_id" INT REFERENCES "device_properties" NOT NULL,
-    "value" VARCHAR
+    "prop_value" VARCHAR
 );
 -- Pratice Additional Device Info
-INSERT INTO "additional_device_info" ("value", "devices_id", "properties_id")
+INSERT INTO "additional_device_info" ("prop_value", "devices_id", "properties_id")
     VALUES  ('wf5000z', '1', '1'),
             ('af5zffz', '1', '2'),
             ('18', '1' ,'3'),
             ('HEPA', '3', '4'),
             ('w30xl24xd1', '3', '5'),
-            ('Sunbeam', '3' ,'6'),
-            ('jk35lol124', '3', '7'),
             ('20', '3' ,'8'),
             ('w28xl26xd1', '4', '9'),
             ('20608', '4', '10');
-            
             
       SELECT "brand", "model", "serial_number", "maintenance_date", 
     "maintenance_due", "location", "img_url", "manufacture_date", 
