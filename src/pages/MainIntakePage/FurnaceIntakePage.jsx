@@ -6,7 +6,7 @@ import Logo from '../../assets/HouseCheckup.svg?react';
 import '../../styles/_styles.scss';
 
 // CUSTOM COMPONENTS
-import IntakeFormBase from '../../components/IntakeForm/IntakeFormBase';
+
 import { IntakeFormFurnace } from '../../components/components';
 
 function FurnaceIntakePage() {
