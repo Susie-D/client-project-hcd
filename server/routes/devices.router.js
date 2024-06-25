@@ -99,12 +99,13 @@ router.get('/:id', (req, res) => {
   "maintenance_due", "location", "img_url", "manufacture_date", 
   "install_date", "user_id"
   FROM "devices" 
-  WHERE user_id = $1 AND id = $1;
+  WHERE user_id = $1 AND id = $2;
 
 
   `;
   pool.query(query, [req.params.id])
     .then((dbResult) => {
+      console.log("devices.router step 1 ", req.params.id);
       res.send(dbResult.rows)
     })
     .catch((error) => {
