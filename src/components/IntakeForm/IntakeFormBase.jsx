@@ -108,12 +108,12 @@ function IntakeFormBase() {
           onChange={(event) => setInstall_date(event.target.value)}
         />
         <button type="submit" onClick={(event) => handleSubmit(event)}>
-          Submit
+          Submit (This one works/ in base form)
         </button>
       </div>
     </form>
   );
-}
+} 
 ('');
 
 export default IntakeFormBase;
