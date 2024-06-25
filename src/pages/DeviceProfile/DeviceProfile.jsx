@@ -47,7 +47,9 @@ function DeviceProfile() {
                         <td>data</td>
                         <td>data</td>
                     </tr>
-                    <button className='btn'>History</button>
+                    <button className='btn'onClick={() => {
+                    history.push('/devices');
+                    }}>Back</button>
                     <button className="btn" onClick={() => {
                     history.push('/device-how-to-videos');
                     }}>How to Videos</button>
