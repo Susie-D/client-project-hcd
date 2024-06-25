@@ -14,30 +14,9 @@ function IntakeFormBase() {
   const [model_number, setModel_number] = useState('');
   const [serial_number, setSerial_number] = useState('');
   const [location, setLocation] = useState('');
-  const [img_url, setImg_url] = useState('');
   const [manufacture_date, setManufacture_date] = useState('');
   const [install_date, setInstall_date] = useState('');
   const [device_type, setDevice_type] = useState('1');
-
-  const AddDevice = () => {
-    const device = {
-      device_type,
-      brand,
-      model_number,
-      serial_number,
-      location,
-      img_url,
-      manufacture_date,
-      install_date,
-      user_id: user.id,
-    };
-
-    // need to use AddDevice const and  onSubmit={nextPage} on line 39
-
-    // no dispatch, store in SAGA until view 3
-
-    console.log('Wheres my device?', device);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -47,18 +26,18 @@ function IntakeFormBase() {
       model_number,
       serial_number,
       location,
-      img_url,
       manufacture_date,
       install_date,
       user_id: user.id,
     };
+
     dispatch({
       type: 'ADD_DEVICE',
       payload: {
         device: device,
       },
     });
-    //history.push('/nextPage'); // Navigate to the next page if needed
+    history.push('/devices'); // Navigate to the next page if needed
   };
 
   return (
@@ -128,13 +107,26 @@ function IntakeFormBase() {
           required
           onChange={(event) => setInstall_date(event.target.value)}
         />
-        <button type="submit" onClick={(event) => handleSubmit(event)}>
-          Submit
-        </button>
+        <div className="row jc-space-between">
+          <button
+            className="btn"
+            onClick={() => {
+              history.push('/home');
+            }}
+          >
+            Back
+          </button>
+          <button
+            className="btn"
+            type="submit"
+            onClick={(event) => handleSubmit(event)}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </form>
   );
 }
-('');
 
 export default IntakeFormBase;

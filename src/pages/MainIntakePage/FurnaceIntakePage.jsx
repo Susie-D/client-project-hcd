@@ -9,26 +9,26 @@ import '../../styles/_styles.scss';
 import IntakeFormBase from '../../components/IntakeForm/IntakeFormBase';
 
 function FurnaceIntakePage() {
-    const history = useHistory();
-    const dispatch = useDispatch();
-
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   return (
     <PageLayout>
       <div className="header-three jc-center">Intake Screen</div>
       <div className="">
-      <div className="header-two jc-center">Furnace</div>
+        <div className="header-two jc-center">Furnace</div>
         <IntakeFormBase />
         {/* <> $ additional_device_info will go here! </> */}
         <div className="row jc-center">
-        <button 
-                className="btn"
-                onClick={() => {
-                history.push('/user');
-                }}
-                >Back
-            </button>
-            {/* <button
+          {/* <button
+            className="btn"
+            onClick={() => {
+              history.push('/home');
+            }}
+          >
+            Back
+          </button> */}
+          {/* <button
                 className="btn"
                 type="button"
                 onClick={() => {
@@ -36,14 +36,15 @@ function FurnaceIntakePage() {
                 }}
                 >Next
             </button> */}
-            <button
-                className="btn"
-                type="submit"
-                onSubmit={(event) => {
-                event.preventDefault();
-                }}
-                >Submit
-            </button>
+          {/* <button
+            className="btn"
+            type="submit"
+            onSubmit={(event) => {
+              event.preventDefault();
+            }}
+          >
+            Submit
+          </button> */}
         </div>
       </div>
     </PageLayout>

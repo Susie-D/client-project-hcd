@@ -3,29 +3,29 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-    console.log('REQUEST BODY: ', req.body)
-    const device_types_id = req.body.device.device_type;
-    const brand = req.body.device.brand;
-    const model = req.body.device.model_number;
-    const serial_number = req.body.device.serial_number;
-    const maintenance_date = req.body.device.maintenance_date;
-    const maintenance_due = req.body.device.maintenance_due;
-    const location = req.body.device.location;
-    const img_url = req.body.device.img_url;
-    const manufacture_date = req.body.device.manufacture_date;
-    const install_date = req.body.device.install_date;
-    const user_id = req.body.device.user_id;
+  console.log('REQUEST BODY: ', req.body)
+  const device_types_id = req.body.device.device_type;
+  const brand = req.body.device.brand;
+  const model = req.body.device.model_number;
+  const serial_number = req.body.device.serial_number;
+  const maintenance_date = req.body.device.maintenance_date;
+  const maintenance_due = req.body.device.maintenance_due;
+  const location = req.body.device.location;
+  const img_url = req.body.device.img_url;
+  const manufacture_date = req.body.device.manufacture_date;
+  const install_date = req.body.device.install_date;
+  const user_id = req.body.device.user_id;
 
-    const queryText = `INSERT INTO "devices" ("device_types_id", "brand", "model", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id")
+  const queryText = `INSERT INTO "devices" ("device_types_id", "brand", "model", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id")
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING id`;
-    pool
-      .query(queryText, [device_types_id, brand, model, serial_number, maintenance_date, maintenance_due, location,img_url, manufacture_date, install_date, user_id])
-      .then(() => res.sendStatus(201))
-      .catch((err) => {
-        console.log('Device insert failed: ', err);
-        res.sendStatus(500);
-      });
-  });
+  pool
+    .query(queryText, [device_types_id, brand, model, serial_number, maintenance_date, maintenance_due, location, img_url, manufacture_date, install_date, user_id])
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.log('Device insert failed: ', err);
+      res.sendStatus(500);
+    });
+});
 /**
  * GET route template
  */
@@ -59,10 +59,10 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const query = `
-  SELECT "brand", "model", "serial_number", "maintenance_date", 
-  "maintenance_due", "location", "img_url", "manufacture_date", 
-  "install_date", "user_id"
-  FROM "devices" 
+  SELECT a.*, b.name
+  FROM devices a
+  INNER JOIN device_types b
+  ON a.device_types_id = b.id
   WHERE user_id = $1
   `;
   pool.query(query, [req.params.id])

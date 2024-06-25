@@ -32,6 +32,7 @@ function* fetchDevicesByUserId() {
   }
 }
 
+<<<<<<< HEAD
 const getDeviceIdFromState = (state) => state.devices.id
 
 function* fetchSingleDeviceByID() {
@@ -46,16 +47,36 @@ function* fetchSingleDeviceByID() {
     console.log('AXIOS | GET items by user error', error)
   }
 }
+=======
+// worker Saga: will be fired on "ADD_DEVICE" actions
+function* addDevice(action) {
+  try {
+    console.log("IN SAGA: ", action.payload)
+    // passes the username and password from the payload to the server
+    yield axios.post('/api/devices', action.payload);
+>>>>>>> main
 
+    // automatically log a user in after registration
+    // yield put({ type: 'DEVICE', payload: action.payload });
+
+  } catch (error) {
+    console.log('Error with adding device:', error);
+  }
+}
 
 
 
 function* DevicesSaga() {
   yield takeLatest("FETCH_DEVICES", fetchDevices); // not being used. get all devices for all users
+<<<<<<< HEAD
   yield takeLatest("FETCH_DEVICES_BY_USER_ID", fetchDevicesByUserId)
   yield takeLatest("FETCH_DEVICES_BY_DEVICES_ID", fetchSingleDeviceByID)
 
 
+=======
+  yield takeLatest("FETCH_DEVICES_BY_USER_ID", fetchDevicesByUserId);
+  yield takeLatest('ADD_DEVICE', addDevice);
+>>>>>>> main
 }
 
 export default DevicesSaga;

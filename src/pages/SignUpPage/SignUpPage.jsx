@@ -8,8 +8,8 @@ function SignUpPage() {
   const history = useHistory();
 
   return (
-    <PageLayout>
-      <div className="signUp-container">
+    <div className="signUp-container">
+      <PageLayout>
         <SignUpForm />
         <div className="row jc-center">
           <p className="text-s">Have an account?&nbsp;&nbsp;</p>
@@ -23,8 +23,8 @@ function SignUpPage() {
             Login
           </button>
         </div>
-      </div>
-    </PageLayout>
+      </PageLayout>
+    </div>
   );
 }
 

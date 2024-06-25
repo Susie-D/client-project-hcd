@@ -7,9 +7,7 @@ import '../../styles/_styles.scss';
 import IntakeFormBase from '../../components/IntakeForm/IntakeFormBase';
 
 function FridgeIntakePage() {
-    const history = useHistory();
-
-
+  const history = useHistory();
 
   return (
     <PageLayout>
@@ -20,21 +18,23 @@ function FridgeIntakePage() {
         <IntakeFormBase />
         {/* <> $ additional_device_info will go here! </> */}
         <div className="row jc-center">
-            <button
-                type="button"
-                onClick={() => {
-                history.push('/tracking-intake');
-                }}
-            >Next
-            </button>
-        <p></p>
-            <button 
-                className="btn"
-                onClick={() => {
-                    history.push('/user');
-                    }}
-                >Back
-            </button>
+          <button
+            type="button"
+            onClick={() => {
+              history.push('/tracking-intake');
+            }}
+          >
+            Next
+          </button>
+          <p></p>
+          <button
+            className="btn"
+            onClick={() => {
+              history.push('/home');
+            }}
+          >
+            Back
+          </button>
         </div>
       </div>
     </PageLayout>
