@@ -7,6 +7,7 @@ export default function IntakeFormFurnace() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
+  // standard furnace form
   const [brand, setBrand] = useState('');
   const [model_number, setModel_number] = useState('');
   const [serial_number, setSerial_number] = useState('');
@@ -14,6 +15,12 @@ export default function IntakeFormFurnace() {
   const [manufacture_date, setManufacture_date] = useState('');
   const [install_date, setInstall_date] = useState('');
   const [device_type, setDevice_type] = useState('2');
+
+  // additional info
+  const [filterType, setFilterType] = useState('');
+  // const [filterSize, setFilterSize] = useState('');
+  // const [filterBrand, setFilterBrand] = useState('');
+  // const [mervRating, setMervRating] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,6 +33,7 @@ export default function IntakeFormFurnace() {
       manufacture_date,
       install_date,
       user_id: user.id,
+      prop_value: [{ filterType }],
       //   //   prop_value: [
       //   //     // {
       //   //     //   filterType,
@@ -116,6 +124,21 @@ export default function IntakeFormFurnace() {
             required
             onChange={(event) => setInstall_date(event.target.value)}
           />
+
+          <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
+            Additional Device Info
+          </div>
+
+          <input
+            type="text"
+            name="filterType"
+            placeholder="Filter Type"
+            className="row text-m"
+            value={filterType}
+            required
+            onChange={(event) => setFilterType(event.target.value)}
+          />
+
           <div className="row jc-space-between">
             <button
               className="btn"
@@ -138,3 +161,17 @@ export default function IntakeFormFurnace() {
     </>
   );
 }
+
+//Add information about device/item:
+// Additional device/item info will be needed depending on what it is (properties and values, i.e)
+
+// Filter Size
+// Filter Brand
+// Filter Model Number
+// MERV rating
+
+// Requirements
+// The user should be able to add Input into the Textboxes
+
+// Definition of Done
+// The user should be able to add input into the textboxes. The form is mobile friendly.
