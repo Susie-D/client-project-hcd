@@ -14,12 +14,6 @@ function DevicesList() {
   }, [dispatch]);
 
 
-  function handleDeviceListItemClick(device){
-    console.log('THIS IS WHAT IM LOOKING FOR', device);
-    history.push(`/device-profile/${device.user_id}/${device.id}`);
-  }
-
-
   return (
     <div className="container">
       <div>
@@ -43,10 +37,9 @@ function DevicesList() {
             <DevicesListItem 
               key={device.id} 
               device={device} 
-              onClick={() => handleDeviceListItemClick(device)}/>
+              />
               {console.log('device id:',device)}
               {console.log('device user_id:',device.user_id)}
-              
           </tbody>
         ))}
       </table>

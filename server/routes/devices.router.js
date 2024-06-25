@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const query = `
-  SELECT "brand", "model", "serial_number", "maintenance_date", 
+  SELECT "id", "brand", "model", "serial_number", "maintenance_date", 
   "maintenance_due", "location", "img_url", "manufacture_date", 
   "install_date", "user_id"
   FROM "devices" 
@@ -87,7 +87,7 @@ router.get('/:id', (req, res) => {
 //TODO PURPOSE: From the list if you click a list item it will take you to the specific "DeviceProfile" Page
 router.get('/:user_id/:id', (req, res) => {
   const query = `
-    SELECT "brand", "model", "serial_number", "maintenance_date",
+    SELECT "id", "brand", "model", "serial_number", "maintenance_date",
            "maintenance_due", "location", "img_url", "manufacture_date",
            "install_date", "user_id"
     FROM "devices"
