@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './DeviceProfile.scss';
 import '../../styles/_styles.scss';
 
 function DeviceProfile() {
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+      dispatch({ type:"FETCH_DEVICES_BY_DEVICES_ID" });
+    }, [dispatch]);
+  
     const history = useHistory();
 
 

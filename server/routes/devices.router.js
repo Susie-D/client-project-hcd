@@ -93,24 +93,24 @@ router.post('/', (req, res) => {
 
 // PURPOSE: get a singular device for specific user. 
 
-router.get('/:id', (req, res) => {
+router.get('/:user_id/:id', (req, res) => {
   const query = `
-  SELECT "brand", "model", "serial_number", "maintenance_date", 
-  "maintenance_due", "location", "img_url", "manufacture_date", 
-  "install_date", "user_id"
-  FROM "devices" 
-  WHERE user_id = $1 AND id = $2;
-
-
+    SELECT "brand", "model", "serial_number", "maintenance_date",
+           "maintenance_due", "location", "img_url", "manufacture_date",
+           "install_date", "user_id"
+    FROM "devices"
+    WHERE "user_id" = $1 AND "id" = $2;
   `;
-  pool.query(query, [req.params.id])
+  const { user_id, id } = req.params; // Destructure user_id and id from req.params
+  pool.query(query, [user_id, id])
     .then((dbResult) => {
-      console.log("devices.router step 1 ", req.params.id);
-      res.send(dbResult.rows)
+      console.log("devices.router step 1 ", id);
+      res.send(dbResult.rows);
     })
     .catch((error) => {
-      console.log("THIS IS AN ERROR", error);
-    }) // GET route code here 
+      console.error("Error executing query:", error);
+      res.status(500).json({ error: 'Internal server error' });
+    });
 });
 
 //! END ---------------
