@@ -7,12 +7,9 @@ import '../../styles/_styles.scss';
 
 // CUSTOM COMPONENTS
 
-import { IntakeFormFurnace } from '../../components/components';
+import IntakeFormFurnace from '../../components/IntakeForm/IntakeFormFurnace';
 
 function FurnaceIntakePage() {
-  const history = useHistory();
-  const dispatch = useDispatch();
-
   return (
     <PageLayout>
       <div className="header-three jc-center">Intake Screen</div>

@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import './_intakeForm.scss';
+import { useSelector, useDispatch } from 'react-redux';
 
-function IntakeFormFurnace() {
-  // const dispatch = useDispatch();
+export default function IntakeFormFurnace() {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
-  // Defining a local state to store the user's new device
   const [brand, setBrand] = useState('');
   const [model_number, setModel_number] = useState('');
   const [serial_number, setSerial_number] = useState('');
@@ -17,14 +14,10 @@ function IntakeFormFurnace() {
   const [manufacture_date, setManufacture_date] = useState('');
   const [install_date, setInstall_date] = useState('');
   const [device_type, setDevice_type] = useState('2');
-  const [filterType, setFilterType] = useState('');
-  const [filterSize, setFilterSize] = useState('');
-  const [filterBrand, setFilterBrand] = useState('');
-  const [mervRating, setMervRating] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const furnace = {
+    const device = {
       device_type,
       brand,
       model_number,
@@ -33,28 +26,30 @@ function IntakeFormFurnace() {
       manufacture_date,
       install_date,
       user_id: user.id,
-      prop_value: [
-        // {
-        //   filterType,
-        //   filterSize,
-        //   filterBrand,
-        //   mervRating,
-        // },
-      ],
-      // prop_value,
-      // devices_id: devices.id,
-      // properties_id: devices.device_type_id,
+      //   //   prop_value: [
+      //   //     // {
+      //   //     //   filterType,
+      //   //     //   filterSize,
+      //   //     //   filterBrand,
+      //   //     //   mervRating,
+      //   //     // },
+      //   //   ],
+      //   //   // prop_value,
+      //   //   // devices_id: devices.id,
+      //   //   // properties_id: devices.device_type_id,
     };
 
-    // dispatch separately or together with base fom?
     dispatch({
       type: 'ADD_DEVICE',
       payload: {
         device: device,
       },
     });
+    history.push('/devices'); // Navigate to the next page if needed
+  };
 
-    return (
+  return (
+    <>
       <form className="intake-form column">
         <div className="column">
           <input
@@ -140,8 +135,6 @@ function IntakeFormFurnace() {
           </div>
         </div>
       </form>
-    );
-  };
+    </>
+  );
 }
-
-export default IntakeFormFurnace;
