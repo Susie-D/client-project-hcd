@@ -17,12 +17,12 @@ function* fetchDevices() {
   }
 }
 
-const getUserIdFromState = (state) => state.user.id
+// const getUserIdFromState = (state) => state.user.id
 
 function* fetchDevicesByUserId() {
   try {
-    const user_id = yield select(getUserIdFromState);
-    const response = yield axios.get(`/api/devices/${user_id}`)
+    // const user_id = yield select(getUserIdFromState);
+    const response = yield axios.get(`/api/devices/user`)
     yield put({
       type: 'SET_USER_DEVICES_BY_USER_ID',
       payload: response.data,
@@ -36,18 +36,21 @@ function* fetchDevicesByUserId() {
 
 
 
-const getDeviceIdFromState = (state) => state.devices.id
+// const getDeviceIdFromState = (state) => state.devices.id
 
-function* fetchSingleDeviceByID() {
-  try {
-    const devices_id = yield select(getDeviceIdFromState);
+function* fetchSingleDeviceByID(action) {
+  try { 
+    // Steve's component is going to send a dispatch that contains the device id
+    const devices_id = action.payload
+    // const devices_id = yield select(getDeviceIdFromState);
+   // const user_id = yield select(getUserIdFromState);
     const devicesResponse = yield axios.get(`/api/devices/${devices_id}`)
     yield put({
-      type: 'SET_USER_DEVICES_BY_DEVICES_ID',
-      payload: devicesResponse.data,
+      type:  'SET_USER_DEVICES_BY_DEVICES_ID',
+      payload: devicesResponse.data
     });
   } catch (error) {
-    console.log('AXIOS | GET items by user error', error)
+    console.log('AXIOS | GET a single device for a user error', error)
   }
 }
 

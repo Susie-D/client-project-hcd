@@ -56,8 +56,8 @@ router.get('/', (req, res) => {
 
 
 // PURPOSE: get all devices for specific user. 
-
-router.get('/:id', (req, res) => {
+  // /api/devices/user
+router.get('/user', (req, res) => {
   const query = `
   SELECT a.*, b.name
   FROM devices a
@@ -65,7 +65,7 @@ router.get('/:id', (req, res) => {
   ON a.device_types_id = b.id
   WHERE user_id = $1
   `;
-  pool.query(query, [req.params.id])
+  pool.query(query, [req.user.id])
     .then((dbResult) => {
       res.send(dbResult.rows)
     })
@@ -92,8 +92,8 @@ router.post('/', (req, res) => {
 });
 
 // PURPOSE: get a singular device for specific user. 
-
-router.get('/:user_id/:id', (req, res) => {
+  // /api/devices/{someDeviceId}
+router.get('/:id', (req, res) => {
   const query = `
     SELECT "brand", "model", "serial_number", "maintenance_date",
            "maintenance_due", "location", "img_url", "manufacture_date",
@@ -101,8 +101,10 @@ router.get('/:user_id/:id', (req, res) => {
     FROM "devices"
     WHERE "user_id" = $1 AND "id" = $2;
   `;
-  const { user_id, id } = req.params; // Destructure user_id and id from req.params
-  pool.query(query, [user_id, id])
+  // The device id:
+  const id = req.params.id;
+  
+  pool.query(query, [req.user.id, id])
     .then((dbResult) => {
       console.log("devices.router step 1 ", id);
       res.send(dbResult.rows);
