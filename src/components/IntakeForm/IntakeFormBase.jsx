@@ -37,7 +37,7 @@ function IntakeFormBase() {
         device: device,
       },
     });
-    //history.push('/mainIntake'); // Navigate to the next page if needed
+    history.push('/devices'); // Navigate to the next page if needed
   };
 
   return (
@@ -107,13 +107,26 @@ function IntakeFormBase() {
           required
           onChange={(event) => setInstall_date(event.target.value)}
         />
-        <button type="submit" onClick={(event) => handleSubmit(event)}>
-          Submit
-        </button>
+        <div className="row jc-space-between">
+          <button
+            className="btn"
+            onClick={() => {
+              history.push('/home');
+            }}
+          >
+            Back
+          </button>
+          <button
+            className="btn"
+            type="submit"
+            onClick={(event) => handleSubmit(event)}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </form>
   );
 }
-('');
 
 export default IntakeFormBase;

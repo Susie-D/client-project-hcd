@@ -1,0 +1,57 @@
+@import '../../styles/styles';
+
+.device-list {
+  &-container {
+    & .header-three {
+      margin-top: 2em;
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2.5rem;
+    }
+  }
+}
+
+.MuiDataGrid-columnHeader.MuiDataGrid-columnHeader--sortable.MuiDataGrid-withBorderColor {
+  background: $tertiary;
+  word-wrap: break-word !important;
+}
+
+.MuiDataGrid-cell.MuiDataGrid-cell--textRight.MuiDataGrid-cell--editable {
+  text-align: left;
+  font-size: xx-small;
+}
+
+.MuiDataGrid-columnHeaderTitle.css-t89xny-MuiDataGrid-columnHeaderTitle {
+  font-size: x-small;
+  color: $dark;
+  font-weight: bold;
+}
+
+span.MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root {
+  font-size: small;
+}
+
+.MuiDataGrid-cell.MuiDataGrid-cell--textLeft.MuiDataGrid-cell--editable {
+  font-size: small;
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell {
+  color: $dark;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+.MuiDataGrid-row:nth-child(even) {
+  background-color: ghostwhite;
+}
+
+.muidatagrid-columnheader {
+  height: 'unset !important';
+}
+
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeSmall.css-ptiqhd-MuiSvgIcon-root {
+  font-size: small;
+}

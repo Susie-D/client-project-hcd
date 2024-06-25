@@ -9,6 +9,5 @@ export { default as FurnaceIntakePage } from './MainIntakePage/FurnaceIntakePage
 export { default as FridgeIntakePage } from './MainIntakePage/FridgeIntakePage';
 export { default as Under_SinkIntakePage } from './MainIntakePage/Under_SinkIntakePage';
 export { default as Gutters_n_SpoutsPage } from './MainIntakePage/Gutters_n_SpoutsPage';
-
 export { default as InitialIntake } from './InitialIntake/InitialIntake';
 export { default as DevicesList } from './DevicesList/DevicesList';

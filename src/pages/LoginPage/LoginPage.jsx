@@ -1,7 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { LoginForm } from '../../components/components';
 import { PageLayout } from '../pages';
-import Logo from '../../assets/HouseCheckup.svg?react';
 import './_loginPage.scss';
 import '../../styles/_styles.scss';
 
@@ -9,8 +8,8 @@ function LoginPage() {
   const history = useHistory();
 
   return (
-    <PageLayout>
-      <div className="login-container">
+    <div className="login-container">
+      <PageLayout>
         <LoginForm />
         <div className="row jc-center">
           <p className="text-s">Need an account?&nbsp;&nbsp;</p>
@@ -24,8 +23,8 @@ function LoginPage() {
             Sign Up
           </button>
         </div>
-      </div>
-    </PageLayout>
+      </PageLayout>
+    </div>
   );
 }
 

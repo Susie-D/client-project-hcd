@@ -7,6 +7,9 @@ export default defineConfig(() => {
         build: {
             outDir: 'build',
         },
+        optimizeDeps: {
+            exclude: ['DevicesList.jsx']
+        },
         server: {
             proxy: {
                 "/api": 'http://localhost:5001',
