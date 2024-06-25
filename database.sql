@@ -2,6 +2,8 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
+
+
 DROP TABLE IF EXISTS "additional_device_info";
 DROP TABLE IF EXISTS "device_properties";
 DROP TABLE IF EXISTS "devices";
