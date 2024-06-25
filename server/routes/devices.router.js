@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
   const install_date = req.body.device.install_date;
   const user_id = req.body.device.user_id;
 
-  const queryText = `INSERT INTO "devices" ("device_types_id", "brand", "model", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id")
+  const queryText = `INSERT INTO "devices" ("device_types_id", "brand", "model_number", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id")
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING id`;
   pool
     .query(queryText, [device_types_id, brand, model, serial_number, maintenance_date, maintenance_due, location, img_url, manufacture_date, install_date, user_id])

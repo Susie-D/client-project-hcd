@@ -22,7 +22,7 @@ export default function MobileNav() {
         />
         <>
           <ul className="dropdown-list">
-            <div className="test">
+            <div>
               <div className="dropdown-list-icon-close">
                 <CloseIcon
                   fontSize="xlarge"
