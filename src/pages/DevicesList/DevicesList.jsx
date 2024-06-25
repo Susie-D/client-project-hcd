@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import DevicesListItem from '../DevicesListItem/DevicesListItem';
 
 function DevicesList() {
+
+  const history = useHistory();
   const dispatch = useDispatch();
   const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
 
@@ -11,9 +14,11 @@ function DevicesList() {
   }, [dispatch]);
 
 
-  function handleDeviceListItemClick(){
-    
+  function handleDeviceListItemClick(device){
+    console.log('THIS IS WHAT IM LOOKING FOR', device);
+    history.push(`/device-profile/${device.user_id}/${device.id}`);
   }
+
 
   return (
     <div className="container">
@@ -33,9 +38,15 @@ function DevicesList() {
             <th>Install Date</th>
           </tr>
         </thead>
-        {devicesList.map((device) => (
+        {devicesList.map(device => (
           <tbody>
-            <DevicesListItem key={device.id} device={device} onClick={() => handleDeviceListItemClick(movie.id)}/>
+            <DevicesListItem 
+              key={device.id} 
+              device={device} 
+              onClick={() => handleDeviceListItemClick(device)}/>
+              {console.log('device id:',device)}
+              {console.log('device user_id:',device.user_id)}
+              
           </tbody>
         ))}
       </table>
