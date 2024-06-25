@@ -20,7 +20,7 @@ function DevicesListItem({ device }) {
       editable: true,
     },
     {
-      field: 'model',
+      field: 'model_number',
       headerName: 'Model',
       width: 100,
       editable: true,
