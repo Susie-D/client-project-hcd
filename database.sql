@@ -1,8 +1,9 @@
-CREATE DATABASE hcd
+-- CREATE DATABASE hcd
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
+
 DROP TABLE IF EXISTS "additional_device_info";
 DROP TABLE IF EXISTS "device_properties";
 DROP TABLE IF EXISTS "devices";
@@ -69,7 +70,7 @@ CREATE TABLE "devices" (
     "completed?" BOOLEAN DEFAULT FALSE
 );
 -- Pratice Device Data
-INSERT INTO "devices" ("device_types_id", "brand", "model", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id", "completed?") 
+INSERT INTO "devices" ("device_types_id", "brand", "model_number", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id", "completed?") 
     VALUES ('1', 'LG', 'LFX25950', 'LFX25950-123456', '2024-06-14', '2025-06-14', 'Kitchen', 'https://static-data2.manualslib.com/product-images/07a/2038183/lg-lupxc2386n-refrigerator.jpg', '2018-01-15', '2018-01-20', '3', FALSE),
     
            ('1', 'Kenmore', '71063', '71063-123456', '2024-05-20', '2025-05-20', 'Kitchen', 'https://imgur.com/a/I1bjKMf', '2010-04-10', '2010-04-20"', '4', FALSE),
@@ -114,9 +115,3 @@ INSERT INTO "additional_device_info" ("prop_value", "devices_id", "properties_id
             ('20', '3' ,'8'),
             ('w28xl26xd1', '4', '9'),
             ('20608', '4', '10');
-            
-      SELECT "brand", "model", "serial_number", "maintenance_date", 
-    "maintenance_due", "location", "img_url", "manufacture_date", 
-    "install_date", "completed?"
-FROM "devices"
-ORDER BY "maintenance_date" ;
