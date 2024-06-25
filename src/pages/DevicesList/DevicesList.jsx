@@ -10,6 +10,11 @@ function DevicesList() {
     dispatch({ type: 'FETCH_DEVICES_BY_USER_ID' });
   }, [dispatch]);
 
+
+  function handleDeviceListItemClick(){
+    
+  }
+
   return (
     <div className="container">
       <div>
@@ -30,7 +35,7 @@ function DevicesList() {
         </thead>
         {devicesList.map((device) => (
           <tbody>
-            <DevicesListItem key={device.id} device={device} />
+            <DevicesListItem key={device.id} device={device} onClick={() => handleDeviceListItemClick(movie.id)}/>
           </tbody>
         ))}
       </table>
