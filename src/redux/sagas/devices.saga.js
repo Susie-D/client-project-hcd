@@ -32,6 +32,20 @@ function* fetchDevicesByUserId() {
   }
 }
 
+const getDeviceIdFromState = (state) => state.devices.id
+
+function* fetchSingleDeviceByID() {
+  try {
+    const devices_id = yield select(getDeviceIdFromState);
+    const response = yield axios.get(`/api/devices/${devices_id}`)
+    yield put({
+      type: 'SET_USER_DEVICES_BY_DEVICES_ID',
+      payload: response.data,
+    });
+  } catch (error) {
+    console.log('AXIOS | GET items by user error', error)
+  }
+}
 
 
 
@@ -39,6 +53,8 @@ function* fetchDevicesByUserId() {
 function* DevicesSaga() {
   yield takeLatest("FETCH_DEVICES", fetchDevices); // not being used. get all devices for all users
   yield takeLatest("FETCH_DEVICES_BY_USER_ID", fetchDevicesByUserId)
+  yield takeLatest("FETCH_DEVICES_BY_DEVICES_ID", fetchSingleDeviceByID)
+
 
 }
 

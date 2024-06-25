@@ -91,7 +91,28 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
+// PURPOSE: get a singular device for specific user. 
 
+router.get('/:id', (req, res) => {
+  const query = `
+  SELECT "brand", "model", "serial_number", "maintenance_date", 
+  "maintenance_due", "location", "img_url", "manufacture_date", 
+  "install_date", "user_id"
+  FROM "devices" 
+  WHERE user_id = $1 AND id = $1;
+
+
+  `;
+  pool.query(query, [req.params.id])
+    .then((dbResult) => {
+      res.send(dbResult.rows)
+    })
+    .catch((error) => {
+      console.log("THIS IS AN ERROR", error);
+    }) // GET route code here 
+});
+
+//! END ---------------
 
 
 module.exports = router;
