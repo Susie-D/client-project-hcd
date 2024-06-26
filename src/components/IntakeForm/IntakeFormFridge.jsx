@@ -14,7 +14,7 @@ function IntakeFormFridge (){
   const [location, setLocation] = useState('');
   const [manufacture_date, setManufacture_date] = useState('');
   const [install_date, setInstall_date] = useState('');
-  const [device_type_id, setDevice_type_id] = useState(2);
+  const [device_type_id, setDevice_type_id] = useState(1);
 
   // additional info
    const [waterFilterModelNumber, setwaterFilterModelNumber] = useState('');

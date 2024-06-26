@@ -4,7 +4,7 @@ import '../../styles/_styles.scss';
 // CUSTOM COMPONENTS
 import IntakeFormFurnace from '../../components/IntakeForm/IntakeFormFurnace';
 
-function FurnaceIntakePage() {
+export default function FurnaceIntakePage() {
   return (
     <PageLayout>
       <div className="header-three jc-center">Intake Screen</div>
@@ -17,5 +17,3 @@ function FurnaceIntakePage() {
     </PageLayout>
   );
 }
-
-export default FurnaceIntakePage;

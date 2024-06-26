@@ -1,40 +1,19 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-// import './_intakeForm.scss';
+import { PageLayout } from '../pages';
+import '../../styles/_styles.scss';
 
 // CUSTOM COMPONENTS
-import IntakeFormBase from '../../components/IntakeForm/IntakeFormBase';
+import IntakeFormGutters_n_Spouts from '../../components/IntakeForm/IntakeFormGutters_n_Spouts';
 
-function Gutters_n_SpoutsPage (){
-    const history = useHistory();
+export default function Gutters_n_SpoutsPage (){
   return (
-    <PageLayout>
-      <div className="login-container">
-        <div className="row jc-center">
-          <Logo />
+      <PageLayout>
+        <div className="header-three jc-center">Intake Screen</div>
+        <div className="">
+          <div className="header-two jc-center">Furnace</div>
+          <IntakeFormGutters_n_Spouts />
+          <div className="row jc-center">
+          </div>
         </div>
-        <IntakeFormBase />
-        {/* <> $ additional_device_info will go here! </> */}
-        <div className="row jc-center">
-            <button
-                type="button"
-                onClick={() => {
-                history.push('/tracking-intake');
-                }}
-            >Next
-            </button>
-        <p></p>
-            <button 
-                className="btn"
-                onClick={() => {
-                    history.push('/user');
-                    }}
-                >Back
-            </button>
-        </div>
-      </div>
-    </PageLayout>
-  );
-}''
-
-export default Gutters_n_SpoutsPage;
+      </PageLayout>
+    );
+}
