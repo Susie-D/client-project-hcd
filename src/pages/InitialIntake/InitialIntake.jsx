@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PageLayout } from '../pages';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { categories } from '../../data/categories';
@@ -10,10 +10,17 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function InitialIntake() {
   const [deviceTypeName, setDeviceTypeName] = useState({});
   const [selectedDropdown, setSelectedDropdown] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
   const intakeDevice = useSelector((store) => store.devicesReducer.deviceType);
+  const deviceTypes = useSelector((store) => store.deviceTypesReducer);
 
   const history = useHistory();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_DEVICE_TYPES' });
+  }, [dispatch]);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -37,11 +44,41 @@ export default function InitialIntake() {
     history.push(`/${createDevicePath}-intake`);
   };
 
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  const handleSelectDevice = (deviceName) => {
+    const createDevicePath = deviceName.split(' ').join('-').toLowerCase();
+    history.push(`/${createDevicePath}-intake`);
+  };
+
+  const filteredDeviceTypes = deviceTypes.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <PageLayout>
       <div className="initial-intake-container column ac-center">
         <div className="header-three dark">
           Please select a single device type:
+        </div>
+        <div>
+        <input
+                type="text"
+                placeholder="Search Devices..."
+                value={searchQuery}
+                onChange={(event) => handleSearch(event.target.value)}
+            />
+            {searchQuery && (
+                <ul>
+                    {filteredDeviceTypes.map((item, index) => (
+                        <li key={index} onClick={() => handleSelectDevice(item.name)}>
+                            <h3>{item.name}</h3>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
         <FormControl fullWidth style={{ marginTop: '10px' }}>
           <InputLabel
