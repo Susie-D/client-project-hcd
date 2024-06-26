@@ -7,7 +7,7 @@ function IntakeFormFridge (){
    const dispatch = useDispatch();
    const user = useSelector((store) => store.user);
  
-  // standard furnace form
+  // standard form
   const [brand, setBrand] = useState('');
   const [model_number, setModel_number] = useState('');
   const [serial_number, setSerial_number] = useState('');

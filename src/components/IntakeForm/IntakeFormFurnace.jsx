@@ -7,7 +7,7 @@ export default function IntakeFormFurnace() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
-  // standard furnace form
+  // standard form
   const [brand, setBrand] = useState('');
   const [model_number, setModel_number] = useState('');
   const [serial_number, setSerial_number] = useState('');
@@ -41,22 +41,22 @@ export default function IntakeFormFurnace() {
             filterType, 
         },
         {
-          property_id: 5, //should come from form
+          property_id: 5, 
           prop_value: 
             filterSize, 
         },
         {
-          property_id: 6, //should come from form
+          property_id: 6, 
           prop_value: 
             filterBrand,
         },
         {
-          property_id: 7, //should come from form
+          property_id: 7, 
           prop_value: 
             filterModelNumber,
         },
         {
-          property_id: 8, //should come from form
+          property_id: 8,
           prop_value: 
             mervRating,
         },
