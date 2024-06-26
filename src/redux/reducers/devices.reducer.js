@@ -19,6 +19,16 @@ const deviceItems = (state = [], action) => {
     }
 };
 
+const deviceProfile = (state = {}, action) => {
+    switch (action.type) {
+        case 'SET_USER_DEVICES_BY_DEVICES_ID':
+            console.log('THIS IS MY ACTION.PAYLOAD FOR A DEVICE ID ', action.payload)
+            return action.payload[0];
+        default:
+            return state;
+    }
+};
+
 const deviceType = (state = [], action) => {
     switch (action.type) {
         case 'FETCH_DEVICE_TYPE':
@@ -32,4 +42,5 @@ export default combineReducers({
     devicesReducer,
     deviceItems,
     deviceType,
+    deviceProfile,
 });
