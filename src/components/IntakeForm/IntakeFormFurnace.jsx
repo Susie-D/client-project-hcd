@@ -202,9 +202,10 @@ export default function IntakeFormFurnace() {
             <button
               className="btn"
               type="submit"
+              // history.push('/furnace-tracking')
               onClick={(event) => handleSubmit(event)}
             >
-              Submit
+              Next
             </button>
           </div>
         </div>
@@ -212,3 +213,4 @@ export default function IntakeFormFurnace() {
     </>
   );
 }
+furnace-tracking

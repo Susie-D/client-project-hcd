@@ -16,6 +16,7 @@ import {
   SignUpPage,
   UserPage,
   FurnaceIntakePage,
+  FurnaceTracking,
   FridgeIntakePage,
   Under_SinkIntakePage,
   Gutters_n_SpoutsPage,
@@ -110,6 +111,13 @@ function App() {
             path="/furnace-intake"
           >
             <FurnaceIntakePage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows furnace-main-intake else shows LoginPage
+            exact
+            path="/furnace-tracking"
+          >
+            <FurnaceTracking />
           </ProtectedRoute>
           <ProtectedRoute
             // logged in shows fridge-main-intake else shows LoginPage
