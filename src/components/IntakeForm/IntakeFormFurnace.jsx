@@ -20,6 +20,7 @@ export default function IntakeFormFurnace() {
   const [filterType, setFilterType] = useState('');
   const [filterSize, setFilterSize] = useState('');
   const [filterBrand, setFilterBrand] = useState('');
+  const [filterModelNumber, setFilterModelNumber] = useState('');
   const [mervRating, setMervRating] = useState('');
 
   const handleSubmit = (event) => {
@@ -35,8 +36,29 @@ export default function IntakeFormFurnace() {
       user_id: user.id,
       additional_info: [
         {
-          property_id: 1, //should come from form
-          prop_value: filterType,
+          property_id: 4, //should come from form
+          prop_value: 
+            filterType, 
+        },
+        {
+          property_id: 5, //should come from form
+          prop_value: 
+            filterSize, 
+        },
+        {
+          property_id: 6, //should come from form
+          prop_value: 
+            filterBrand,
+        },
+        {
+          property_id: 7, //should come from form
+          prop_value: 
+            filterModelNumber,
+        },
+        {
+          property_id: 8, //should come from form
+          prop_value: 
+            mervRating,
         },
       ],
     };
@@ -141,7 +163,6 @@ export default function IntakeFormFurnace() {
             required
             onChange={(event) => setFilterSize(event.target.value)}
           />
-
           <input
             type="text"
             name="filterBrand"
@@ -153,6 +174,15 @@ export default function IntakeFormFurnace() {
           />
           <input
             type="text"
+            name="filterModelNumber"
+            placeholder="Filter Model Number"
+            className="row text-m"
+            value={filterModelNumber}
+            required
+            onChange={(event) => setFilterModelNumber(event.target.value)}
+          />
+          <input
+            type="text"
             name="mervRating"
             placeholder="Merv Rating"
             className="row text-m"
@@ -160,7 +190,6 @@ export default function IntakeFormFurnace() {
             required
             onChange={(event) => setMervRating(event.target.value)}
           />
-
           <div className="row jc-space-between">
             <button
               className="btn"
@@ -183,11 +212,3 @@ export default function IntakeFormFurnace() {
     </>
   );
 }
-
-//Add information about device/item:
-// Additional device/item info will be needed depending on what it is (properties and values, i.e)
-
-// Filter Size
-// Filter Brand
-// Filter Model Number
-// MERV rating
