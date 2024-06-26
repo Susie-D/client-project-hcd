@@ -14,18 +14,18 @@ export default function IntakeFormFurnace() {
   const [location, setLocation] = useState('');
   const [manufacture_date, setManufacture_date] = useState('');
   const [install_date, setInstall_date] = useState('');
-  const [device_type, setDevice_type] = useState('2');
+  const [device_type_id, setDevice_type_id] = useState(2);
 
   // additional info
   const [filterType, setFilterType] = useState('');
-  // const [filterSize, setFilterSize] = useState('');
-  // const [filterBrand, setFilterBrand] = useState('');
-  // const [mervRating, setMervRating] = useState('');
+  const [filterSize, setFilterSize] = useState('');
+  const [filterBrand, setFilterBrand] = useState('');
+  const [mervRating, setMervRating] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const device = {
-      device_type,
+      device_type_id,
       brand,
       model_number,
       serial_number,
@@ -33,18 +33,12 @@ export default function IntakeFormFurnace() {
       manufacture_date,
       install_date,
       user_id: user.id,
-      prop_value: [{ filterType }],
-      //   //   prop_value: [
-      //   //     // {
-      //   //     //   filterType,
-      //   //     //   filterSize,
-      //   //     //   filterBrand,
-      //   //     //   mervRating,
-      //   //     // },
-      //   //   ],
-      //   //   // prop_value,
-      //   //   // devices_id: devices.id,
-      //   //   // properties_id: devices.device_type_id,
+      additional_info: [
+        {
+          property_id: 1, //should come from form
+          prop_value: filterType,
+        },
+      ],
     };
 
     dispatch({
@@ -138,6 +132,34 @@ export default function IntakeFormFurnace() {
             required
             onChange={(event) => setFilterType(event.target.value)}
           />
+          <input
+            type="text"
+            name="filterSize"
+            placeholder="Filter Size"
+            className="row text-m"
+            value={filterSize}
+            required
+            onChange={(event) => setFilterSize(event.target.value)}
+          />
+
+          <input
+            type="text"
+            name="filterBrand"
+            placeholder="Filter Brand"
+            className="row text-m"
+            value={filterBrand}
+            required
+            onChange={(event) => setFilterBrand(event.target.value)}
+          />
+          <input
+            type="text"
+            name="mervRating"
+            placeholder="Merv Rating"
+            className="row text-m"
+            value={mervRating}
+            required
+            onChange={(event) => setMervRating(event.target.value)}
+          />
 
           <div className="row jc-space-between">
             <button
@@ -169,9 +191,3 @@ export default function IntakeFormFurnace() {
 // Filter Brand
 // Filter Model Number
 // MERV rating
-
-// Requirements
-// The user should be able to add Input into the Textboxes
-
-// Definition of Done
-// The user should be able to add input into the textboxes. The form is mobile friendly.
