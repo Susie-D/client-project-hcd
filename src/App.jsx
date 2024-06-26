@@ -76,7 +76,7 @@ function App() {
           <ProtectedRoute
             // logged in shows DeviceProfile else shows LoginPage
             exact
-            path="/device-profile"
+            path="/device-profile/:deviceId"
           >
             <DeviceProfile />
           </ProtectedRoute>
