@@ -6,18 +6,16 @@ import Logo from '../../assets/HouseCheckup.svg?react';
 import '../../styles/_styles.scss';
 
 // CUSTOM COMPONENTS
-import IntakeFormBase from '../../components/IntakeForm/IntakeFormBase';
+
+import IntakeFormFurnace from '../../components/IntakeForm/IntakeFormFurnace';
 
 function FurnaceIntakePage() {
-  const history = useHistory();
-  const dispatch = useDispatch();
-
   return (
     <PageLayout>
       <div className="header-three jc-center">Intake Screen</div>
       <div className="">
         <div className="header-two jc-center">Furnace</div>
-        <IntakeFormBase />
+        <IntakeFormFurnace />
         {/* <> $ additional_device_info will go here! </> */}
         <div className="row jc-center">
           {/* <button

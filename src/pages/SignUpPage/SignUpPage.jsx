@@ -1,7 +1,6 @@
 import { PageLayout } from '../pages';
 import { useHistory } from 'react-router-dom';
 import { SignUpForm } from '../../components/components';
-import Logo from '../../assets/HouseCheckup.svg?react';
 import './_signUpPage.scss';
 
 function SignUpPage() {
