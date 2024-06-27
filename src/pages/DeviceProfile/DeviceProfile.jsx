@@ -1,11 +1,16 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import React, { useEffect } from 'react';
+import { useHistory, useDispatch, useSelector } from 'react-router-dom/cjs/react-router-dom.min';
 import './DeviceProfile.scss';
 import '../../styles/_styles.scss';
 
-function DeviceProfile() {
 
+function DeviceProfile() {
+ 
     const history = useHistory();
+
+
+    
+
 
 
     return (
