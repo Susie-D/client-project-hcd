@@ -5,6 +5,7 @@ import './_devicesListItem.scss';
 import { useHistory } from 'react-router-dom';
 
 function DevicesListItem() {
+  //  ALL devices for a single user
   const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
 
   const history = useHistory();
