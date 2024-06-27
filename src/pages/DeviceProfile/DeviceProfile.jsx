@@ -17,6 +17,10 @@ function DeviceProfile() {
     const history = useHistory();
 
 
+    
+
+
+
     return (
         <>
             <div className="row jc-center">

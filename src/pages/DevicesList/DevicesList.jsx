@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { DevicesListItem } from '../../components/components';
 import { PageLayout } from '../pages';
 import Box from '@mui/material/Box';
 import './_devicesList.scss';
 
 function DevicesList() {
+
+  //const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch({ type: 'FETCH_DEVICES_BY_USER_ID' });
   }, [dispatch]);
+
 
   return (
     <div className="device-list-container">

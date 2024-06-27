@@ -103,7 +103,32 @@ router.get('/user', (req, res) => {
 
 // });
 
-//! END ---------------
+
+//TODO GET "Devices" for a specific "user" by id
+//TODO PURPOSE: From the list if you click a list item it will take you to the specific "DeviceProfile" Page
+router.get('/:user_id/:id', (req, res) => {
+  const query = `
+    SELECT "id", "brand", "model", "serial_number", "maintenance_date",
+           "maintenance_due", "location", "img_url", "manufacture_date",
+           "install_date", "user_id"
+    FROM "devices"
+    WHERE "user_id" = $1 AND "id" = $2;
+  `;
+
+  const { user_id, id } = req.params; // Destructure user_id and id from req.params
+
+  pool.query(query, [user_id, id])
+    .then((dbResult) => {
+      console.log("devices.router step 1 ", id);
+      res.send(dbResult.rows);
+    })
+    .catch((error) => {
+      console.error("Error executing query:", error);
+      res.status(500).json({ error: 'Internal server error' });
+    });
+});
+//TODO END
+
 
 /**
  * POST route template

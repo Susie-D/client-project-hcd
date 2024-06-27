@@ -10,13 +10,13 @@ function DeviceHowToVideos(){
 
     return(
         <div className="container">
-            <div className="header-two jc-center">Furnace</div>
+            <div className="header-two jc-center">"/device-how-to-videos"</div>
             <a className='btn' href='https://www.youtube.com/watch?v=sOcfx5o9-B4'>Helpful Video 1</a>
             <a className='btn' href='https://www.youtube.com/watch?v=_g8gQ1gg1FM'>Helpful Video 2</a>
             <a className='btn' href='https://www.youtube.com/watch?v=1bRsFAMgZRQ'>Helpful Video 3</a>
-            <p className='btn' onClick={() => {
-                    history.push('/device-profile');
-                    }}>Back</p>
+            <p className='btn' onClick={() => history.goBack()}>
+            Back
+        </p>
         </div>
     )
 

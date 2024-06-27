@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import './_devicesListItem.scss';
 
-function DevicesListItem({ device }) {
+function DevicesListItem() {
   const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
 
   const columns = [
@@ -20,7 +20,7 @@ function DevicesListItem({ device }) {
       editable: true,
     },
     {
-      field: 'model_number',
+      field: 'model',
       headerName: 'Model',
       width: 100,
       editable: true,
@@ -65,7 +65,7 @@ function DevicesListItem({ device }) {
 
   return (
     <>
-      {devicesList ? (
+      {!devicesList ? (
         <DataGrid
           rows={devicesList}
           columns={columns}
