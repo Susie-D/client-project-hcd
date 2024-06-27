@@ -2,9 +2,17 @@ import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import './_devicesListItem.scss';
+import { useHistory } from 'react-router-dom';
 
 function DevicesListItem() {
   const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
+
+  const history = useHistory();
+
+  function handleDeviceListItemClick(device) {
+    console.log('THIS IS WHAT IM LOOKING FOR', device);
+    history.push(`/device-profile/${device.id}`);
+  }
 
   const columns = [
     {
@@ -20,7 +28,7 @@ function DevicesListItem() {
       editable: true,
     },
     {
-      field: 'model',
+      field: 'model_number',
       headerName: 'Model',
       width: 100,
       editable: true,
@@ -65,7 +73,7 @@ function DevicesListItem() {
 
   return (
     <>
-      {!devicesList ? (
+      {devicesList ? (
         <DataGrid
           rows={devicesList}
           columns={columns}
@@ -78,6 +86,7 @@ function DevicesListItem() {
           }}
           pageSizeOptions={[5]}
           enableRowSelectionOnClick
+          onRowClick={handleDeviceListItemClick}
         />
       ) : (
         <div className="device-message header-four">

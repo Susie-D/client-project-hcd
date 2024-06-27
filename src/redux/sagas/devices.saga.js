@@ -21,7 +21,7 @@ const getUserIdFromState = (state) => state.user.id
 
 function* fetchDevicesByUserId() {
   try {
-     const user_id = yield select(getUserIdFromState);
+    const user_id = yield select(getUserIdFromState);
     const response = yield axios.get(`/api/devices/${user_id}`)
     yield put({
       type: 'SET_USER_DEVICES_BY_USER_ID',
@@ -34,14 +34,14 @@ function* fetchDevicesByUserId() {
 
 
 function* fetchSingleDeviceByID(action) {
-  try { 
+  try {
     // Steve's component is going to send a dispatch that contains the device id
     const devices_id = action.payload
     // const devices_id = yield select(getDeviceIdFromState);
-   // const user_id = yield select(getUserIdFromState);
+    // const user_id = yield select(getUserIdFromState);
     const devicesResponse = yield axios.get(`/api/devices/${devices_id}`)
     yield put({
-      type:  'SET_USER_DEVICES_BY_DEVICES_ID',
+      type: 'SET_USER_DEVICES_BY_DEVICES_ID',
       payload: devicesResponse.data
     });
   } catch (error) {
