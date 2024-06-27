@@ -149,7 +149,7 @@ export default function IntakeFormUnder_Sink (){
               <button
                 className="btn"
                 onClick={() => {
-                  history.push('/home');
+                  history.push('/initial-intake');
                 }}
               >
                 Back

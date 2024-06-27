@@ -170,7 +170,7 @@ function IntakeFormFridge (){
             <button
                 className="btn"
                 onClick={() => {
-                history.push('/home');
+                history.push('/initial-intake');
                 }}
             >
                 Back
