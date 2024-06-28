@@ -1,19 +1,25 @@
-import { useState } from 'react';
-import { PageLayout } from '../pages';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { PageLayout } from '../pages';
 import { categories } from '../../data/categories';
 import './_initialIntake.scss';
 import '../../styles/_styles.scss';
-import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 
 export default function InitialIntake() {
-  const [deviceTypeName, setDeviceTypeName] = useState({});
-  const [selectedDropdown, setSelectedDropdown] = useState(false);
-  const intakeDevice = useSelector((store) => store.devicesReducer.deviceType);
-
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const [deviceTypeName, setDeviceTypeName] = useState({});
+  const [currentDeviceTypeName, setCurrentDeviceTypeName] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDropdown, setSelectedDropdown] = useState(false);
+  const deviceTypes = useSelector((store) => store.deviceTypesReducer);
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_DEVICE_TYPES' });
+  }, [dispatch]);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -21,6 +27,7 @@ export default function InitialIntake() {
       ...deviceTypeName,
       [name]: value,
     });
+    setCurrentDeviceTypeName(value);
     if (value) {
       setSelectedDropdown(name);
       dispatch({
@@ -33,20 +40,54 @@ export default function InitialIntake() {
   };
 
   const routeToMainIntake = () => {
-    const createDevicePath = intakeDevice.split(' ').join('-').toLowerCase();
+    const createDevicePath = currentDeviceTypeName
+      .split(' ')
+      .join('-')
+      .toLowerCase();
     history.push(`/${createDevicePath}-intake`);
   };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  const handleSelectDevice = (deviceName) => {
+    const createDevicePath = deviceName.split(' ').join('-').toLowerCase();
+    history.push(`/${createDevicePath}-intake`);
+  };
+
+  const filteredDeviceTypes = deviceTypes.filter((item) =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <PageLayout>
       <div className="initial-intake-container column ac-center">
-        <div className="header-three dark">
-          Please select a single device type:
+        <div className="initial-intake-search">
+          <input
+            type="text"
+            placeholder="Search Devices Type..."
+            value={searchQuery}
+            onChange={(event) => handleSearch(event.target.value)}
+          />
+          {searchQuery && (
+            <ul>
+              {filteredDeviceTypes.map((item, index) => (
+                <a key={index} onClick={() => handleSelectDevice(item.name)}>
+                  <p>{item.name}</p>
+                </a>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div className="header-five dark">
+          ... or select a single device type:
         </div>
         <FormControl fullWidth style={{ marginTop: '10px' }}>
           <InputLabel
             style={{
-              margin: '0 40%',
+              margin: '-10px 40%',
             }}
             id="select-label"
           >
@@ -63,6 +104,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'hvac'}
           >
@@ -84,7 +126,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 33%',
+              margin: '-10px 33%',
             }}
             id="select-label"
           >
@@ -101,6 +143,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'appliance'}
           >
@@ -121,7 +164,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 33%',
+              margin: '-10px 33%',
             }}
             id="select-label"
           >
@@ -138,6 +181,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'plumbing'}
           >
@@ -158,7 +202,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 38%',
+              margin: '-11px 38%',
             }}
             id="select-label"
           >
@@ -175,6 +219,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'safety'}
           >
@@ -189,7 +234,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 35%',
+              margin: '-11px 33%',
             }}
             id="select-label"
           >
@@ -206,6 +251,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'structure'}
           >
@@ -226,7 +272,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 33%',
+              margin: '-11px 33%',
             }}
             id="select-label"
           >
@@ -243,6 +289,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'landscape'}
           >
