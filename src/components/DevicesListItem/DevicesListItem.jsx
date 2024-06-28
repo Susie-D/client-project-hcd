@@ -2,9 +2,18 @@ import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import './_devicesListItem.scss';
+import { useHistory } from 'react-router-dom';
 
-function DevicesListItem({ device }) {
+function DevicesListItem() {
+  //  ALL devices for a single user
   const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
+
+  const history = useHistory();
+
+  function handleDeviceListItemClick(device) {
+    console.log('THIS IS WHAT IM LOOKING FOR', device);
+    history.push(`/device-profile/${device.id}`);
+  }
 
   const columns = [
     {
@@ -78,6 +87,7 @@ function DevicesListItem({ device }) {
           }}
           pageSizeOptions={[5]}
           enableRowSelectionOnClick
+          onRowClick={handleDeviceListItemClick}
         />
       ) : (
         <div className="device-message header-four">
