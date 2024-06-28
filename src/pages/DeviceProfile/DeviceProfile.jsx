@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import './DeviceProfile.scss';
+
+import { PageLayout } from '../../pages/pages';
+
+import './_deviceProfile.scss';
 import '../../styles/_styles.scss';
 
 function DeviceProfile() {
@@ -17,69 +20,73 @@ function DeviceProfile() {
 
   return (
     <>
-      <div className="row jc-center">
-        <h1>Device Profile</h1>
-      </div>
-      <table className="row jc-center">
-        <tbody>
-          <tr>
-            <th>Brand</th>
-            <th>Model</th>
-          </tr>
-          <tr>
-            <td>{deviceById.brand}</td>
-            <td>{deviceById.model_number}</td>
-          </tr>
-          <tr>
-            <th>Serial Number</th>
-            <th>Maintenance Date</th>
-          </tr>
-          <tr>
-            <td>{deviceById.serial_number}</td>
-            <td className="row jc-center">{deviceById.maintenance_date}</td>
-          </tr>
-          <tr>
-            <th>Maintenance Due</th>
-            <th>Location</th>
-          </tr>
-          <tr>
-            <td>{deviceById.maintenance_due}</td>
-            <td>{deviceById.location}</td>
-          </tr>
-          <tr>
-            <th>Manufacture Date</th>
-            <th>Install Date</th>
-          </tr>
-          <tr>
-            <td>{deviceById.manufacture_date}</td>
-            <td>{deviceById.install_date}</td>
-          </tr>
+      <PageLayout>
+        <div className="device-profile-container column jc-center">
+          <div className="header-two jc-center">Device Profile</div>
+          <div className="column ac-center">
+            <img src={deviceById.img_url} />
 
-          {/* <button className='btn'onClick={() => {
-                    history.push('/devices');
-                    }}>Back</button>
-                    <button className="btn" onClick={() => {
-                    history.push('/device-how-to-videos');
-                    }}>How to Videos</button>
-                    */}
-        </tbody>
-      </table>
-      <button
-        className="btn"
-        onClick={() => {
-          history.push('/devices');
-        }}
-      >
-        Back
-      </button>
-      <button
-        className="btn"
-        onClick={() => {
-          history.push('/device-how-to-videos');
-        }}
-      >
-        How to Videos
-      </button>
+            <div className="row">
+              <div className="device-profile-content-row">
+                <p className="bold">Brand</p>
+                <p>{deviceById.brand}</p>
+              </div>
+              <div className="device-profile-content-row">
+                <p className="bold">Model</p>
+                <p>{deviceById.model_number}</p>
+              </div>
+              <div className="device-profile-content-row">
+                <p className="bold">Serial Number</p>
+                <p>{deviceById.serial_number}</p>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="device-profile-content-row">
+                <p className="bold">MAINT Date</p>
+                <p>{deviceById.maintenance_date}</p>
+              </div>
+              <div className="device-profile-content-row">
+                <p className="bold">MAINT Due</p>
+                <p>{deviceById.maintenance_due}</p>
+              </div>
+              <div className="device-profile-content-row">
+                <p className="bold">Location</p>
+                <p>{deviceById.location}</p>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="device-profile-content-row">
+                <p className="bold">MFG Date</p>
+                <p>{deviceById.manufacture_date}</p>
+              </div>
+              <div className="device-profile-content-row">
+                <p className="bold">Install Date</p>
+                <p>{deviceById.install_date}</p>
+              </div>
+            </div>
+          </div>
+          <div className="row jc-center">
+            <button
+              className="btn_sizeMin back text-xxs"
+              onClick={() => {
+                history.push('/devices');
+              }}
+            >
+              Back
+            </button>
+            <button
+              className="btn_sizeMin videos text-xxs"
+              onClick={() => {
+                history.push('/device-how-to-videos');
+              }}
+            >
+              How to Videos
+            </button>
+          </div>
+        </div>
+      </PageLayout>
     </>
   );
 }
