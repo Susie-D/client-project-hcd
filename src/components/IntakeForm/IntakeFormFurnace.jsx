@@ -69,7 +69,7 @@ export default function IntakeFormFurnace() {
         device: device,
       },
     });
-    history.push('/devices'); // Navigate to the next page if needed
+    history.push('/furnace-tracking'); // Navigate to the next page if needed
   };
 
   return (
@@ -204,7 +204,7 @@ export default function IntakeFormFurnace() {
               type="submit"
               onClick={(event) => handleSubmit(event)}
             >
-              Next
+              Sumbit
             </button>
           </div>
         </div>
