@@ -12,3 +12,5 @@ export { default as Gutters_n_SpoutsPage } from './MainIntakePage/Gutters_n_Spou
 export { default as InitialIntake } from './InitialIntake/InitialIntake';
 export { default as DevicesList } from './DevicesList/DevicesList';
 export { default as FurnaceTracking } from './TrackingPage/FurnaceTracking';
+export { default as DeviceProfile } from './DeviceProfile/DeviceProfile';
+export {default as DeviceHowToVideos } from './DeviceHowToVideos/DeviceHowToVideos'

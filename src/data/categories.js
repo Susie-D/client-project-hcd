@@ -1,6 +1,7 @@
 export const categories = [
     {
         category: 'Heating-Ventilating-AC',
+        categoryId: 2,
         deviceType: [
             {
                 name: 'Air Conditioner',
@@ -27,7 +28,7 @@ export const categories = [
                 name: 'Humidifier',
             },
             {
-                name: 'Air Purifier',
+                name: 'Air Purifier'
             },
             {
                 name: 'Air Purifier Portable',
@@ -48,6 +49,7 @@ export const categories = [
     },
     {
         category: 'Appliance',
+        categoryId: 1,
         deviceType: [
             {
                 name: 'Clothes Dryer',
@@ -80,6 +82,7 @@ export const categories = [
     },
     {
         category: 'Plumbing',
+        categoryId: 3,
         deviceType: [
             {
                 name: 'Central Vac System',
@@ -124,6 +127,7 @@ export const categories = [
     },
     {
         category: 'Safety',
+        categoryId: 5,
         deviceType: [
             {
                 name: 'Elevator',
@@ -150,6 +154,7 @@ export const categories = [
     },
     {
         category: 'Structure',
+        categoryId: 4,
         deviceType: [
             {
                 name: 'Door Inspection',
@@ -170,6 +175,7 @@ export const categories = [
     },
     {
         category: 'Landscape',
+        categoryId: 6,
         deviceType: [
             {
                 name: 'Deck Inspection',

@@ -2,64 +2,64 @@ import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import './_devicesListItem.scss';
+import { useHistory } from 'react-router-dom';
 
-function DevicesListItem({ device }) {
+function DevicesListItem() {
+  //  ALL devices for a single user
   const devicesList = useSelector((store) => store.devicesReducer.deviceItems);
+
+  const history = useHistory();
+
+  function handleDeviceListItemClick(device) {
+    console.log('THIS IS WHAT IM LOOKING FOR', device);
+    history.push(`/device-profile/${device.id}`);
+  }
 
   const columns = [
     {
       field: 'name',
       headerName: 'Name',
       width: 80,
-      editable: true,
     },
     {
       field: 'brand',
       headerName: 'Brand',
       width: 80,
-      editable: true,
     },
     {
       field: 'model_number',
       headerName: 'Model',
       width: 100,
-      editable: true,
     },
     {
       field: 'serial_number',
       headerName: 'Serial #',
       width: 110,
-      editable: true,
     },
     {
       field: 'maintenance_date',
       headerName: 'Maint Date',
       width: 115,
-      editable: true,
     },
     {
       field: 'maintenance_due',
       headerName: 'Maint Due',
       width: 115,
-      editable: true,
     },
     {
       field: 'location',
       headerName: 'Location',
       width: 115,
-      editable: true,
     },
     {
       field: 'manufacture_date',
       headerName: 'Mfr Date',
       width: 115,
-      editable: true,
     },
     {
       field: 'install_date',
       headerName: 'Install Date',
       width: 115,
-      editable: true,
     },
   ];
 
@@ -78,6 +78,8 @@ function DevicesListItem({ device }) {
           }}
           pageSizeOptions={[5]}
           enableRowSelectionOnClick
+          variant="scrollable"
+          onRowClick={handleDeviceListItemClick}
         />
       ) : (
         <div className="device-message header-four">

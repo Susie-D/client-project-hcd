@@ -32,6 +32,22 @@ function* fetchDevicesByUserId() {
   }
 }
 
+
+function* fetchSingleDeviceById(action) {
+  try {
+    const devices_id = action.payload;
+    const user_id = yield select(getUserIdFromState);
+    const devicesResponse = yield axios.get(`/api/devices/${user_id}/${devices_id}`)
+
+    yield put({
+      type: 'SET_USER_DEVICES_BY_DEVICES_ID',
+      payload: devicesResponse
+    });
+  } catch (error) {
+    console.log('AXIOS | GET a single device for a user error', error)
+  }
+}
+
 // worker Saga: will be fired on "ADD_DEVICE" actions
 function* addDevice(action) {
   try {
@@ -52,6 +68,7 @@ function* addDevice(action) {
 function* DevicesSaga() {
   yield takeLatest("FETCH_DEVICES", fetchDevices); // not being used. get all devices for all users
   yield takeLatest("FETCH_DEVICES_BY_USER_ID", fetchDevicesByUserId);
+  yield takeLatest("FETCH_DEVICES_BY_DEVICES_ID", fetchSingleDeviceById);
   yield takeLatest('ADD_DEVICE', addDevice);
 }
 
