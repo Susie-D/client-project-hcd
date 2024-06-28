@@ -4,7 +4,7 @@ import '../../styles/_styles.scss';
 // CUSTOM COMPONENTS
 import IntakeFormFridge from '../../components/IntakeForm/IntakeFormFridge';
 
-function FridgeIntakePage() {
+export default function FridgeIntakePage() {
   return (
     <PageLayout>
       <div className="header-three jc-center">Intake Screen</div>
@@ -17,5 +17,3 @@ function FridgeIntakePage() {
     </PageLayout>
   );
 }
-
-export default FridgeIntakePage;

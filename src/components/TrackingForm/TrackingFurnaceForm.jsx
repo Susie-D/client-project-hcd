@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import './_trackingForm.scss';
 
 export default function IntakeFormFurnace() {
   const history = useHistory();
-  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
 // standard form
@@ -23,29 +23,67 @@ export default function IntakeFormFurnace() {
 
   return (
     <>
-      <form className="intake-form column">
+      <form className="tracking-form column">
 
           <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
             Maintance Due - 
           </div>
           <div className="text-s row text-m" style={{ fontWeight: 'light' }}>
-            Filter Last Changed/Cleaned 12/01/2023 
+            <input
+              type="text"
+              // name="username"
+              placeholder="Filter Last Changed/Cleaned 12/01/2023"
+              className="row text-s"
+              // value={username}
+              // onChange={(event) => setUsername(event.target.value)}
+            />
           </div>
           <div className="text-s row text-m" style={{ fontWeight: 'light' }}>
-            Due for Change/Clean on 2/01/2024 
+            <input
+              type="text"
+              // name="username"
+              placeholder="Due for Change/Clean on 2/01/2024 "
+              className="row text-s"
+              // value={username}
+              // onChange={(event) => setUsername(event.target.value)}
+            />
+            
           </div>
           <div className="text-s row text-m" style={{ fontWeight: 'light' }}>
-            Preformed Today or Date you changed/cleaned. 
+            <input
+              type="text"
+              // name="username"
+              placeholder="Today or Date Changed/Cleaned."
+              className="row text-s"
+              // value={username}
+              // onChange={(event) => setUsername(event.target.value)}
+            />
           </div>
-          <div className="text-s row text-m" style={{ fontWeight: 'light' }}>
-            I just changed this: Today or Click here to select a date you preformed this task. 
+          <div className="text-s row text-m">
+          <p className="text-s">I just changed this:&nbsp;&nbsp;</p>
+          <button
+            type="button"
+            className="btn btn_asLink text-s"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            Today
+          </button>              
+            <br/>          
           </div>
-          <div className="header-five jc-center" style={{ fontWeight: 'bold' }}>
+          <div className="header-five jc-center" style={{ fontWeight: 'bold', textAlign: 'center' }}>
+            <br/>
             HC Note - HEPA changes can be as short as 3 months or as long as 6 months.
             HouseCheckup has picked every 4 months as a reminder and task to preform.
+            <br/>
+            <br/>
             Other Tips to do now -	
+            <br/>
             1. Vacuum Exterior Unit 
+            <br/>
             2. Clean Interior of the Unit 
+            <br/>
             3. Inspect condensate pumps (if any)
           </div>
           <div className="row jc-center">
@@ -55,6 +93,18 @@ export default function IntakeFormFurnace() {
               value="Show Me 'How To' Video"
             />
          </div>
+         <div className="row jc-center">
+          <p className="text-s">View all registered &nbsp;&nbsp;</p>
+          <button
+            type="button"
+            className="btn btn_asLink text-s"
+            onClick={() => {
+              history.push('/devices');
+            }}
+          >
+            Devices
+          </button>
+        </div>
           <div className="row jc-space-between">
             <button
               className="btn"
@@ -68,7 +118,7 @@ export default function IntakeFormFurnace() {
               className="btn"
               type="submit"
               onClick={() => {
-                history.push('/devices');
+                history.push('/initial-intake');
               }}
             >
               Next Intake

@@ -14,5 +14,8 @@
     border-top: none;
     border-right: none;
     border-left: none;
+    &.row.text-s {
+      width: 100%;  
+    }
   }
 }

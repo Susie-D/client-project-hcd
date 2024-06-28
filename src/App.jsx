@@ -127,6 +127,13 @@ function App() {
             <FridgeIntakePage />
           </ProtectedRoute>
           <ProtectedRoute
+            // logged in shows furnace-main-intake else shows LoginPage
+            exact
+            path="/refrigerator-tracking"
+          >
+            <FurnaceTracking />
+          </ProtectedRoute>
+          <ProtectedRoute
             // logged in shows Under_Sink-main-intake else shows LoginPage
             exact
             path="/undersink-inspection-intake"
