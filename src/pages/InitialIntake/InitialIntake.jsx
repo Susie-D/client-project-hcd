@@ -1,59 +1,13 @@
 import { useState, useEffect } from 'react';
-import { PageLayout } from '../pages';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { categories } from '../../data/categories';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { PageLayout } from '../pages';
+import { categories } from '../../data/categories';
 import './_initialIntake.scss';
 import '../../styles/_styles.scss';
 
-import { styled, alpha, InputBase } from '@mui/material';
-
-import SearchIcon from '@mui/icons-material/Search';
-
 export default function InitialIntake() {
-  const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
-  }));
-
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('sm')]: {
-        width: '12ch',
-        '&:focus': {
-          width: '20ch',
-        },
-      },
-    },
-  }));
-
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -109,7 +63,7 @@ export default function InitialIntake() {
   return (
     <PageLayout>
       <div className="initial-intake-container column ac-center">
-        <div>
+        <div className="initial-intake-search">
           <input
             type="text"
             placeholder="Search Devices Type..."
@@ -119,30 +73,21 @@ export default function InitialIntake() {
           {searchQuery && (
             <ul>
               {filteredDeviceTypes.map((item, index) => (
-                <li key={index} onClick={() => handleSelectDevice(item.name)}>
+                <a key={index} onClick={() => handleSelectDevice(item.name)}>
                   <p>{item.name}</p>
-                </li>
+                </a>
               ))}
             </ul>
           )}
         </div>
 
-        {/* <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </Search> */}
         <div className="header-five dark">
-          Please select a single device type:
+          ... or select a single device type:
         </div>
         <FormControl fullWidth style={{ marginTop: '10px' }}>
           <InputLabel
             style={{
-              margin: '0 40%',
+              margin: '-10px 40%',
             }}
             id="select-label"
           >
@@ -159,6 +104,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'hvac'}
           >
@@ -180,7 +126,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 33%',
+              margin: '-10px 33%',
             }}
             id="select-label"
           >
@@ -197,6 +143,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'appliance'}
           >
@@ -217,7 +164,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 33%',
+              margin: '-10px 33%',
             }}
             id="select-label"
           >
@@ -234,6 +181,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'plumbing'}
           >
@@ -254,7 +202,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 38%',
+              margin: '-11px 38%',
             }}
             id="select-label"
           >
@@ -271,6 +219,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'safety'}
           >
@@ -285,7 +234,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 35%',
+              margin: '-11px 33%',
             }}
             id="select-label"
           >
@@ -302,6 +251,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'structure'}
           >
@@ -322,7 +272,7 @@ export default function InitialIntake() {
         <FormControl fullWidth style={{ marginTop: '30px' }}>
           <InputLabel
             style={{
-              margin: '0 33%',
+              margin: '-11px 33%',
             }}
             id="select-label"
           >
@@ -339,6 +289,7 @@ export default function InitialIntake() {
               backgroundColor: '#a9d09e',
               color: ' #032e45',
               fontWeight: 'bold',
+              height: '2.5em',
             }}
             disabled={selectedDropdown && selectedDropdown !== 'landscape'}
           >
