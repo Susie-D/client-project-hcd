@@ -46,30 +46,30 @@ router.post('/', async (req, res) => {
     res.sendStatus(500)
   }
   res.sendStatus(200);
-});
-/**
- * GET route template
- */
+}); -
+  /**
+   * GET route template
+   */
 
 
-//! START --------------- GET ALL BY ALL USERS
-router.get('/', (req, res) => {
-  const query = `
+  //! START --------------- GET ALL BY ALL USERS
+  router.get('/', (req, res) => {
+    const query = `
       SELECT a.*, b.name
       FROM devices a
       INNER JOIN device_types b
       ON a.device_types_id = b.id
 
     `;
-  pool.query(query)
-    .then((dbResult) => {
-      res.send(dbResult.rows);
-    })
-    .catch((error) => {
-      console.log("THIS IS AN ERROR", error);
-      res.sendStatus(500);
-    });
-});
+    pool.query(query)
+      .then((dbResult) => {
+        res.send(dbResult.rows);
+      })
+      .catch((error) => {
+        console.log("THIS IS AN ERROR", error);
+        res.sendStatus(500);
+      });
+  });
 
 //! END ---------------
 
@@ -77,7 +77,7 @@ router.get('/', (req, res) => {
 
 
 // PURPOSE: get all devices for specific user. 
-
+// /api/devices/user
 router.get('/:id', (req, res) => {
   const query = `
   SELECT a.*, b.name
@@ -86,7 +86,7 @@ router.get('/:id', (req, res) => {
   ON a.device_types_id = b.id
   WHERE user_id = $1
   `;
-  pool.query(query, [req.params.id])
+  pool.query(query, [req.user.id])
     .then((dbResult) => {
       res.send(dbResult.rows)
     })
@@ -103,7 +103,31 @@ router.get('/:id', (req, res) => {
 
 // });
 
-//! END ---------------
+
+//TODO GET A "Device" for a specific "user" by id
+//TODO PURPOSE: From the list if you click a list item it will take you to the specific "DeviceProfile" Page
+router.get('/:user_id/:id', (req, res) => {
+  const query = `
+    SELECT "id", "brand", "model_number", "serial_number", "maintenance_date",
+           "maintenance_due", "location", "img_url", "manufacture_date",
+           "install_date", "user_id"
+    FROM "devices"
+    WHERE "user_id" = $1 AND "id" = $2;
+  `;
+
+  const { user_id, id } = req.params; // Destructure user_id and id from req.params
+
+  pool.query(query, [user_id, id])
+    .then((dbResult) => {
+      res.send(dbResult.rows);
+    })
+    .catch((error) => {
+      console.error("Error executing query:", error);
+      res.status(500).json({ error: 'Internal server error' });
+    });
+});
+//TODO END
+
 
 /**
  * POST route template
@@ -112,7 +136,31 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
+// PURPOSE: get a singular device for specific user. 
+// /api/devices/{someDeviceId}
+// router.get('/:id', (req, res) => {
+//   const query = `
+//     SELECT "brand", "model", "serial_number", "maintenance_date",
+//            "maintenance_due", "location", "img_url", "manufacture_date",
+//            "install_date", "user_id"
+//     FROM "devices"
+//     WHERE "user_id" = $1 AND "id" = $2;
+//   `;
+//   // The device id:
+//   const id = req.params.id;
 
+//   pool.query(query, [req.user.id, id])
+//     .then((dbResult) => {
+//       console.log("devices.router step 1 ", id);
+//       res.send(dbResult.rows);
+//     })
+//     .catch((error) => {
+//       console.error("Error executing query:", error);
+//       res.status(500).json({ error: 'Internal server error' });
+//     });
+// });
+
+//! END ---------------
 
 
 module.exports = router;

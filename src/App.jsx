@@ -21,6 +21,8 @@ import {
   Under_SinkIntakePage,
   Gutters_n_SpoutsPage,
   DevicesList,
+  DeviceProfile,
+  DeviceHowToVideos,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -72,6 +74,24 @@ function App() {
             <DevicesList />
           </ProtectedRoute>
           //! new
+          <ProtectedRoute
+            // logged in shows DeviceProfile else shows LoginPage
+            exact
+            path="/device-profile/:deviceId"
+          >
+            <DeviceProfile />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows DeviceProfile else shows LoginPage
+            exact
+            path="/device-how-to-videos"
+          >
+            <DeviceHowToVideos />
+          </ProtectedRoute>
+
+
+
           <ProtectedRoute exact path="/initial-intake">
             <InitialIntake />
           </ProtectedRoute>
@@ -146,6 +166,13 @@ function App() {
             path="/gutters-and-downspouts-intake"
           >
             <Gutters_n_SpoutsPage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows the Device Profile page else shows LoginPage
+            exact
+            path="/device-profile"
+          >
+            <DeviceProfile />
           </ProtectedRoute>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

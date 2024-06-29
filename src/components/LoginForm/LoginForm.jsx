@@ -49,6 +49,7 @@ function LoginForm() {
           name="password"
           placeholder="Password"
           className="row text-m"
+          autoComplete="off"
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}

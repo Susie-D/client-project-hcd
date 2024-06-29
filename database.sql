@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS "additional_device_info";
 DROP TABLE IF EXISTS "device_properties";
 DROP TABLE IF EXISTS "devices";
 DROP TABLE IF EXISTS "device_types";
-DROP TABLE IF EXISTS "catagories";
+DROP TABLE IF EXISTS "categories";
 DROP TABLE IF EXISTS "user";
 
 CREATE TABLE "user" (
@@ -20,7 +20,7 @@ CREATE TABLE "user" (
     "last_name" VARCHAR (80),
     "location" VARCHAR (80)
 );
--- Pratice User Data
+-- Practice User Data
 INSERT INTO "user" ("username", "password", "email", "first_name", "last_name", "location")
     VALUES  ('Suz','Mewrowrouh?', 'kingofthecastle@tails.com', 'Bacon', 'Douang', 'Minneapolis'),
             ('Lexi', 'Woof!', 'babydog20@paws.com', 'Mozzarella', 'Clendenen', 'NE MPLS'),
@@ -29,12 +29,12 @@ INSERT INTO "user" ("username", "password", "email", "first_name", "last_name", 
             ('Ayla','LetsGrowww', 'GrowThroughWhatYouGoThrough@gmail.com', 'Leia', 'Monne', 'South Minneapolis');
 
 -- CATAGORIES
-CREATE TABLE "catagories" (
+CREATE TABLE "categories" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR
 );
 -- Pratice Catagories
-INSERT INTO "catagories" ("name")
+INSERT INTO "categories" ("name")
     VALUES  ('Appliance'),
             ('HVAC'),
             ('Plumbing'),
@@ -44,10 +44,10 @@ INSERT INTO "catagories" ("name")
 CREATE TABLE "device_types" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR,
-    "catagory_id" INT REFERENCES "catagories" NOT NULL
+    "category_id" INT REFERENCES "categories" NOT NULL
 );
--- Pratice Device Types
-INSERT INTO "device_types" ("name", "catagory_id")
+-- Practice Device Types
+INSERT INTO "device_types" ("name", "category_id")
     VALUES  ('Fridge', '1'), 
             ('Furnace', '2'),
             ('Under-Sink', '3'),
@@ -69,15 +69,23 @@ CREATE TABLE "devices" (
     "user_id" INT REFERENCES "user" NOT NULL,
     "completed?" BOOLEAN DEFAULT FALSE
 );
--- Pratice Device Data
+-- Practice Device Data
 INSERT INTO "devices" ("device_types_id", "brand", "model_number", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id", "completed?") 
     VALUES ('1', 'LG', 'LFX25950', 'LFX25950-123456', '2024-06-14', '2025-06-14', 'Kitchen', 'https://static-data2.manualslib.com/product-images/07a/2038183/lg-lupxc2386n-refrigerator.jpg', '2018-01-15', '2018-01-20', '3', FALSE),
     
-           ('1', 'Kenmore', '71063', '71063-123456', '2024-05-20', '2025-05-20', 'Kitchen', 'https://imgur.com/a/I1bjKMf', '2010-04-10', '2010-04-20"', '4', FALSE),
+           ('1', 'Kenmore', '71063', '71063-123456', '2024-05-20', '2025-05-20', 'Kitchen', 'https://target.scene7.com/is/image/Target/GUEST_aa57b540-29fe-48f0-aca1-7166c13c573b?wid=488&hei=488&fmt=pjpeg', '2010-04-10', '2010-04-20"', '4', FALSE),
            
-           ('2', 'Trane', 'S9V2B040D3PSCA', 'JHY1234-4321', '2024-06-10', '2025-06-01', 'laundry Room', 'https://imgur.com/a/I1bjKMf', '2008-01-01', '2009-01-10', '3', FALSE),
+           ('2', 'Trane', 'S9V2B040D3PSCA', 'JHY1234-4321', '2024-06-10', '2025-06-01', 'laundry Room', 'https://hvacdirect.com/media/catalog/product/t/h/thumbnail_trane-runtru-ac_5.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700', '2008-01-01', '2009-01-10', '3', FALSE),
            
-           ('3', 'Delta', 'Lorelai', '95B932-32S', '2024-07-17', '2025-07-17', 'Kitchen', 'https://imgur.com/a/I1bjKMf', '08/08/2017', '09/09/2019', '4', FALSE );  
+           ('3', 'Delta', 'Lorelai', '95B932-32S', '2024-07-17', '2025-07-17', 'Kitchen', 'https://images.thdstatic.com/productImages/32e1194a-e11a-4f55-bbd6-ffa9da5d99c9/svn/stainless-steel-delta-drop-in-kitchen-sinks-95a932-25s-ss-64_600.jpg', '08/08/2017', '09/09/2019', '6', FALSE ),  
+
+           ('1', 'Kenmore', '71063', '71063-123456', '2024-05-20', '2025-05-20', 'Kitchen', 'https://target.scene7.com/is/image/Target/GUEST_aa57b540-29fe-48f0-aca1-7166c13c573b?wid=488&hei=488&fmt=pjpeg', '2010-04-10', '2010-04-20"', '6', FALSE),
+           
+           ('2', 'Trane', 'S9V2B040D3PSCA', 'JHY1234-4321', '2024-06-10', '2025-06-01', 'laundry Room', 'https://hvacdirect.com/media/catalog/product/t/h/thumbnail_trane-runtru-ac_5.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700', '2008-01-01', '2009-01-10', '6', FALSE),
+           
+           ('3', 'Delta', 'Lorelai', '95B932-32S', '2024-07-17', '2025-07-17', 'Kitchen', 'https://images.thdstatic.com/productImages/32e1194a-e11a-4f55-bbd6-ffa9da5d99c9/svn/stainless-steel-delta-drop-in-kitchen-sinks-95a932-25s-ss-64_600.jpg', '08/08/2017', '09/09/2019', '6', FALSE );  
+
+
 -- DEVICE_PROPERTIES
 CREATE TABLE "device_properties" (
     "id" SERIAL PRIMARY KEY,
@@ -85,7 +93,7 @@ CREATE TABLE "device_properties" (
     "device_type_id" INT REFERENCES "device_types" NOT NULL
 );
 
--- Pratice Device Properties
+-- Practice Device Properties
 INSERT INTO "device_properties" ("name", "device_type_id")
     VALUES  ('Water Filter Model Number', '1'), 
             ('Air Filter Model Number', '1'),
@@ -105,7 +113,7 @@ CREATE TABLE "additional_device_info" (
     "properties_id" INT REFERENCES "device_properties" NOT NULL,
     "prop_value" VARCHAR
 );
--- Pratice Additional Device Info
+-- Practice Additional Device Info
 INSERT INTO "additional_device_info" ("prop_value", "devices_id", "properties_id")
     VALUES  ('wf5000z', '1', '1'),
             ('af5zffz', '1', '2'),
