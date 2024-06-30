@@ -1,22 +1,19 @@
-import { PageLayout } from '../pages';
+import { MobileNav, TrackingFurnaceForm } from '../../components/components';
 import '../../styles/_styles.scss';
-
-// CUSTOM COMPONENTS
-import TrackingFormFurnace from '../../components/TrackingForm/TrackingFurnaceForm';
 
 export default function FurnaceTrackingPage() {
   return (
-    <div className="login-container">
-        <PageLayout>
+    <>
+      <MobileNav />
+      <div className="tracking-container">
         <div className="header-three jc-center">Intake Screen</div>
-        <div className="">
-            <div className="header-two jc-center">Furnace</div>
-            <div className="header-three jc-center">Maintance Tracking</div>
-            <TrackingFormFurnace />
-            <div className="row jc-center">
-            </div>
-        </div>
-        </PageLayout>
-    </div>
+
+        <div className="header-four jc-center">Furnace</div>
+        <br />
+        <div className="header-three jc-center">Maintenance Tracking</div>
+        <TrackingFurnaceForm />
+        <div className="row jc-center"></div>
+      </div>
+    </>
   );
 }

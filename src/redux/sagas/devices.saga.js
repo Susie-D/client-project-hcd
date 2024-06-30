@@ -52,12 +52,11 @@ function* fetchSingleDeviceById(action) {
 function* addDevice(action) {
   try {
     console.log("IN SAGA: ", action.payload)
-    // passes the username and password from the payload to the server
     yield axios.post('/api/devices', action.payload);
-
-    // automatically log a user in after registration
-    // yield put({ type: 'DEVICE', payload: action.payload });
-
+    yield put({
+      type: 'SET_DEVICE',
+      payload: action.payload
+    });
   } catch (error) {
     console.log('Error with adding device:', error);
   }
@@ -69,7 +68,7 @@ function* DevicesSaga() {
   yield takeLatest("FETCH_DEVICES", fetchDevices); // not being used. get all devices for all users
   yield takeLatest("FETCH_DEVICES_BY_USER_ID", fetchDevicesByUserId);
   yield takeLatest("FETCH_DEVICES_BY_DEVICES_ID", fetchSingleDeviceById);
-  yield takeLatest('ADD_DEVICE', addDevice);
+  yield takeLatest('POST_DEVICE', addDevice);
 }
 
 export default DevicesSaga;

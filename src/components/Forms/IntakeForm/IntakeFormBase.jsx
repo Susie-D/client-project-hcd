@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import './_intakeForm.scss';
 
 function IntakeFormBase() {
-  // const dispatch = useDispatch();
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
@@ -37,7 +36,7 @@ function IntakeFormBase() {
         device: device,
       },
     });
-    history.push('/devices'); // Navigate to the next page if needed
+    history.push('/devices');
   };
 
   return (

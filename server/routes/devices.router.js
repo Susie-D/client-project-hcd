@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   let connection = await pool.connect();
-  const device = req.body.device;
+  const device = req.body;
   connection.query('BEGIN;')
 
   const deviceQuery = `INSERT INTO "devices" ("device_types_id", "brand", "model_number", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id")
@@ -16,8 +16,8 @@ router.post('/', async (req, res) => {
       device.brand,
       device.model_number,
       device.serial_number,
-      '', // maintenance date
-      '', // maintenance_due
+      device.maintenance_date,
+      device.maintenance_due,
       device.location,
       '', // image url
       device.manufacture_date,

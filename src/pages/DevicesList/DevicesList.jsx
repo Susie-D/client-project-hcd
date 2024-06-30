@@ -16,7 +16,7 @@ function DevicesList() {
   return (
     <div className="device-list-container">
       <PageLayout>
-        <div className="header-three jc-center">Devices List 😄</div>
+        <div className="header-three jc-center">Devices List</div>
         <div className="jc-center">
           <Box
             sx={{

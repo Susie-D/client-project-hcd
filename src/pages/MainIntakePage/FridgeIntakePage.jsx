@@ -1,9 +1,8 @@
 import { PageLayout } from '../pages';
 import '../../styles/_styles.scss';
+import { IntakeFormFridge } from '../../components/components';
 
 // CUSTOM COMPONENTS
-import IntakeFormFridge from '../../components/IntakeForm/IntakeFormFridge';
-
 export default function FridgeIntakePage() {
   return (
     <PageLayout>
@@ -11,8 +10,7 @@ export default function FridgeIntakePage() {
       <div className="">
         <div className="header-two jc-center">Refrigerator</div>
         <IntakeFormFridge />
-        <div className="row jc-center">
-        </div>
+        <div className="row jc-center"></div>
       </div>
     </PageLayout>
   );

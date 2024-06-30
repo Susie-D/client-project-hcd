@@ -16,7 +16,7 @@ import {
   SignUpPage,
   UserPage,
   FurnaceIntakePage,
-  FurnaceTracking,
+  FurnaceTrackingPage,
   FridgeIntakePage,
   FridgeTrackingPage,
   Under_SinkIntakePage,
@@ -82,17 +82,13 @@ function App() {
           >
             <DeviceProfile />
           </ProtectedRoute>
-
           <ProtectedRoute
             // logged in shows DeviceProfile else shows LoginPage
             exact
-            path="/device-how-to-videos"
+            path="/device-how-to-videos/furnace"
           >
             <DeviceHowToVideos />
           </ProtectedRoute>
-
-
-
           <ProtectedRoute exact path="/initial-intake">
             <InitialIntake />
           </ProtectedRoute>
@@ -138,7 +134,7 @@ function App() {
             exact
             path="/furnace-tracking"
           >
-            <FurnaceTracking />
+            <FurnaceTrackingPage />
           </ProtectedRoute>
           <ProtectedRoute
             // logged in shows fridge-main-intake else shows LoginPage
@@ -154,7 +150,6 @@ function App() {
           >
             <FridgeTrackingPage />
           </ProtectedRoute>
-          
           <ProtectedRoute
             // logged in shows Under_Sink-main-intake else shows LoginPage
             exact

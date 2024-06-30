@@ -1,19 +1,15 @@
-import { PageLayout } from '../pages';
+import { IntakeFormFurnace, MobileNav } from '../../components/components';
 import '../../styles/_styles.scss';
 
 // CUSTOM COMPONENTS
-import IntakeFormFurnace from '../../components/IntakeForm/IntakeFormFurnace';
-
 export default function FurnaceIntakePage() {
   return (
-    <PageLayout>
+    <>
+      <MobileNav />
       <div className="header-three jc-center">Intake Screen</div>
-      <div className="">
-        <div className="header-two jc-center">Furnace</div>
-        <IntakeFormFurnace />
-        <div className="row jc-center">
-        </div>
-      </div>
-    </PageLayout>
+      <div className="header-four jc-center">Furnace</div>
+      <IntakeFormFurnace />
+      <div className="row jc-center"></div>
+    </>
   );
 }

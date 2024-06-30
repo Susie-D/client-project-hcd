@@ -38,11 +38,12 @@ export default function MobileNav() {
                 <li>
                   <Link to="/initial-intake">Add Device</Link>
                 </li>
+
                 <li>
-                  <Link to="/resources">Resources</Link>
+                  <Link to="/devices">Devices List</Link>
                 </li>
                 <li>
-                  <Link to="/devices">Reports</Link>
+                  <Link to="/resources">Resources</Link>
                 </li>
                 <li>
                   <Link
