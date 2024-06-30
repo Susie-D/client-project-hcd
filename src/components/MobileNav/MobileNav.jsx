@@ -46,6 +46,9 @@ export default function MobileNav() {
                   <Link to="/resources">Resources</Link>
                 </li>
                 <li>
+                  <Link to="/about">About</Link>
+                </li>
+                <li>
                   <Link
                     to="/login"
                     onClick={() => dispatch({ type: 'LOGOUT' })}

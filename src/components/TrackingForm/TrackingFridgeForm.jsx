@@ -25,7 +25,7 @@ export default function TrackingFormFridge() {
     <>
       <form className="tracking-form column">
         <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
-          Maintance Due -
+          Maintenance Due -
         </div>
         <div className="text-s row text-m" style={{ fontWeight: 'light' }}>
           <input

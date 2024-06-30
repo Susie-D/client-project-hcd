@@ -24,6 +24,7 @@ import {
   DevicesList,
   DeviceProfile,
   DeviceHowToVideos,
+  ResourcePage,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -122,6 +123,13 @@ function App() {
               <LoginPage />
             )}
           </Route>
+          <ProtectedRoute
+            // logged in shows furnace-main-intake else shows LoginPage
+            exact
+            path="/resources"
+          >
+            <ResourcePage />
+          </ProtectedRoute>
           <ProtectedRoute
             // logged in shows furnace-main-intake else shows LoginPage
             exact

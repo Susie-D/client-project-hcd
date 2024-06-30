@@ -16,3 +16,4 @@ export { default as DevicesList } from './DevicesList/DevicesList';
 export { default as FurnaceTrackingPage } from './TrackingPage/FurnaceTrackingPage';
 export { default as DeviceProfile } from './DeviceProfile/DeviceProfile';
 export { default as DeviceHowToVideos } from './DeviceHowToVideos/DeviceHowToVideos';
+export { default as ResourcePage } from './ResourcePage/ResourcePage';
