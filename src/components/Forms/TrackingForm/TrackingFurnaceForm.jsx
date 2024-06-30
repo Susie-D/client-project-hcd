@@ -1,31 +1,41 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './_trackingForm.scss';
 
-export default function IntakeFormFurnace() {
+export default function TrackingFurnaceForm() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const deviceToAdd = useSelector((store) => store.devicesReducer.deviceToAdd);
 
   const [maintenance_date, setMaintenance_date] = useState('');
   const [maintenance_due, setMaintenance_due] = useState('');
-  const [date, setDate] = useState(
-    new Date().toISOString().slice(0, 10).split('-').reverse().join('/')
-  );
+  const [device, setDevice] = useState({
+    ...deviceToAdd,
+    maintenance_date,
+    maintenance_due,
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const device = {
-      device_type_id,
+    const deviceInfo = {
+      ...deviceToAdd,
       maintenance_date,
       maintenance_due,
     };
+    setDevice(deviceInfo);
+    dispatch({
+      type: 'ADD_DEVICE',
+      payload: deviceInfo,
+    });
+    // history.push('/devices');
   };
 
   return (
     <>
+      {console.log('deviceubfi', deviceToAdd)}
       <form className="tracking-form column">
-        {console.log('heeeeeeeello', deviceToAdd)}
+        {/* {console.log('heeeeeeeello', device)} */}
         {/* <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
           Maintenance Due
         </div> */}
@@ -53,18 +63,20 @@ export default function IntakeFormFurnace() {
             type="date"
             name="maintenance_due"
             placeholder="Due for Change: 2/01/2024"
-            className="row text-s"
+            className="row jc-center text-s"
             value={maintenance_due}
             onChange={(event) => setMaintenance_due(event.target.value)}
           />
         </div>
         <div className="text-s column text-s" style={{ fontWeight: 'light' }}>
-          <div className="text-xxs">Today or Date Changed / Cleaned</div>
+          <div className="text-xxs">
+            Perform Today or Date Changed / Cleaned
+          </div>
           <input
             type="date"
             name="maintenance_date"
             placeholder="Today or Date Changed / Cleaned"
-            className="row text-s"
+            className="row text-s jc-center primary"
             value={maintenance_date}
             onChange={(event) => setMaintenance_date(event.target.value)}
           />
@@ -133,8 +145,8 @@ export default function IntakeFormFurnace() {
           <button
             className="btn btn_sizeMin two text-xxs"
             type="submit"
-            onClick={() => {
-              history.push('/devices');
+            onClick={(e) => {
+              handleSubmit(e);
             }}
           >
             Submit

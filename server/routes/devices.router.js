@@ -16,8 +16,8 @@ router.post('/', async (req, res) => {
       device.brand,
       device.model_number,
       device.serial_number,
-      '', // maintenance date
-      '', // maintenance_due
+      device.maintenance_date,
+      device.maintenance_due,
       device.location,
       '', // image url
       device.manufacture_date,

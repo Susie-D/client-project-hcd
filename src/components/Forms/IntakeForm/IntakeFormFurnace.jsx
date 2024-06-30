@@ -120,7 +120,7 @@ export default function IntakeFormFurnace() {
           type="date"
           name="manufacture_date"
           placeholder="Manufacture Date"
-          className="row text-xs"
+          className="row jc-center text-xs"
           value={manufacture_date}
           required
           onChange={(event) => setManufacture_date(event.target.value)}
@@ -132,12 +132,15 @@ export default function IntakeFormFurnace() {
           type="date"
           name="install_date"
           placeholder="Date installed"
-          className="row text-xs"
+          className="row jc-center text-xs"
           value={install_date}
           required
           onChange={(event) => setInstall_date(event.target.value)}
         />
-        <div className="text-s row text-m dark" style={{ fontWeight: 'bold' }}>
+        <div
+          className="text-s jc-center row text-m dark"
+          style={{ fontWeight: 'bold' }}
+        >
           Additional Device Info
         </div>
         <input

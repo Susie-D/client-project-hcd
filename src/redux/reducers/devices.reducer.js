@@ -38,7 +38,7 @@ const deviceType = (state = [], action) => {
 
 const deviceToAdd = (state = {}, action) => {
     switch (action.type) {
-        case '_DEVICE':
+        case 'ADD_DEVICE':
             return action.payload;
         default:
             return state;
