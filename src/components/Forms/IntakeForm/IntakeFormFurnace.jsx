@@ -61,9 +61,7 @@ export default function IntakeFormFurnace() {
 
     dispatch({
       type: 'ADD_DEVICE',
-      payload: {
-        device: device,
-      },
+      payload: device,
     });
     history.push('/furnace-tracking');
   };

@@ -68,7 +68,7 @@ function* DevicesSaga() {
   yield takeLatest("FETCH_DEVICES", fetchDevices); // not being used. get all devices for all users
   yield takeLatest("FETCH_DEVICES_BY_USER_ID", fetchDevicesByUserId);
   yield takeLatest("FETCH_DEVICES_BY_DEVICES_ID", fetchSingleDeviceById);
-  yield takeLatest('ADD_DEVICE', addDevice);
+  yield takeLatest('POST_DEVICE', addDevice);
 }
 
 export default DevicesSaga;

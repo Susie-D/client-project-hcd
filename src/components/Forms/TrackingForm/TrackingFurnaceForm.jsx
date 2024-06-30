@@ -25,17 +25,16 @@ export default function TrackingFurnaceForm() {
     };
     setDevice(deviceInfo);
     dispatch({
-      type: 'ADD_DEVICE',
+      type: 'POST_DEVICE',
       payload: deviceInfo,
     });
-    // history.push('/devices');
+    history.push('/devices');
   };
 
   return (
     <>
       {console.log('deviceubfi', deviceToAdd)}
       <form className="tracking-form column">
-        {/* {console.log('heeeeeeeello', device)} */}
         {/* <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
           Maintenance Due
         </div> */}
@@ -121,18 +120,7 @@ export default function TrackingFurnaceForm() {
             onClick={() => history.push('/device-how-to-videos/furnace')}
           />
         </div>
-        <div className="row jc-center">
-          <p className="text-s">View all registered &nbsp;&nbsp;</p>
-          <button
-            type="button"
-            className="btn btn_asLink text-s"
-            onClick={() => {
-              history.push('/devices');
-            }}
-          >
-            Devices
-          </button>
-        </div>
+
         <div className="row jc-space-between">
           <button
             className="btn btn_sizeMin one text-xxs"
