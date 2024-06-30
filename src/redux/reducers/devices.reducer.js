@@ -36,9 +36,19 @@ const deviceType = (state = [], action) => {
     }
 };
 
+const deviceToAdd = (state = {}, action) => {
+    switch (action.type) {
+        case '_DEVICE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     devicesReducer,
     deviceItems,
     deviceType,
     deviceProfile,
+    deviceToAdd
 });

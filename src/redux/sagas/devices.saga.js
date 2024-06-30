@@ -52,12 +52,11 @@ function* fetchSingleDeviceById(action) {
 function* addDevice(action) {
   try {
     console.log("IN SAGA: ", action.payload)
-    // passes the username and password from the payload to the server
     yield axios.post('/api/devices', action.payload);
-
-    // automatically log a user in after registration
-    // yield put({ type: 'DEVICE', payload: action.payload });
-
+    yield put({
+      type: 'SET_DEVICE',
+      payload: action.payload
+    });
   } catch (error) {
     console.log('Error with adding device:', error);
   }

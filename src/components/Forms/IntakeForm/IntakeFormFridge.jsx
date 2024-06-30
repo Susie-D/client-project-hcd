@@ -125,7 +125,10 @@ function IntakeFormFridge() {
               onChange={(event) => setInstall_date(event.target.value)}
             />
 
-            <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
+            <div
+              className="text-s row text-m dark"
+              style={{ fontWeight: 'bold' }}
+            >
               Additional Device Info
             </div>
 

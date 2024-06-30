@@ -114,7 +114,8 @@ export default function IntakeFormFurnace() {
           onChange={(event) => setSerial_number(event.target.value)}
         />
       </div>
-      <div className="column">
+      <div className="column text-xs">
+        Manufacture Date
         <input
           type="date"
           name="manufacture_date"
@@ -125,7 +126,8 @@ export default function IntakeFormFurnace() {
           onChange={(event) => setManufacture_date(event.target.value)}
         />
       </div>
-      <div className="column">
+      <div className="column text-xs">
+        Installation Date
         <input
           type="date"
           name="install_date"
@@ -135,11 +137,9 @@ export default function IntakeFormFurnace() {
           required
           onChange={(event) => setInstall_date(event.target.value)}
         />
-
-        <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
+        <div className="text-s row text-m dark" style={{ fontWeight: 'bold' }}>
           Additional Device Info
         </div>
-
         <input
           type="text"
           name="filterType"
