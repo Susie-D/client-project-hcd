@@ -33,11 +33,7 @@ export default function TrackingFurnaceForm() {
 
   return (
     <>
-      {console.log('deviceubfi', deviceToAdd)}
       <form className="tracking-form column">
-        {/* <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
-          Maintenance Due
-        </div> */}
         <div className="text-s row text-m" style={{ color: 'grey' }}>
           Filter Last Changed / Cleaned: 12/01/2023
           {/* <input

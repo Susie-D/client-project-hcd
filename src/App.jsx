@@ -18,11 +18,13 @@ import {
   FurnaceIntakePage,
   FurnaceTrackingPage,
   FridgeIntakePage,
+  FridgeTrackingPage,
   Under_SinkIntakePage,
   Gutters_n_SpoutsPage,
   DevicesList,
   DeviceProfile,
   DeviceHowToVideos,
+  ResourcePage,
 } from './pages/pages.jsx';
 
 import './App.css';
@@ -124,12 +126,19 @@ function App() {
           <ProtectedRoute
             // logged in shows furnace-main-intake else shows LoginPage
             exact
+            path="/resources"
+          >
+            <ResourcePage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows furnace-main-intake else shows LoginPage
+            exact
             path="/furnace-intake"
           >
             <FurnaceIntakePage />
           </ProtectedRoute>
           <ProtectedRoute
-            // logged in shows furnace-main-intake else shows LoginPage
+            // logged in shows furnace-tracking else shows LoginPage
             exact
             path="/furnace-tracking"
           >
@@ -143,11 +152,11 @@ function App() {
             <FridgeIntakePage />
           </ProtectedRoute>
           <ProtectedRoute
-            // logged in shows furnace-main-intake else shows LoginPage
+            // logged in shows fridge-tracking else shows LoginPage
             exact
             path="/refrigerator-tracking"
           >
-            <FurnaceTrackingPage />
+            <FridgeTrackingPage />
           </ProtectedRoute>
           <ProtectedRoute
             // logged in shows Under_Sink-main-intake else shows LoginPage
