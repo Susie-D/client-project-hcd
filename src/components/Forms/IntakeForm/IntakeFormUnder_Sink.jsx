@@ -14,7 +14,7 @@ export default function IntakeFormUnder_Sink (){
     const [location, setLocation] = useState('');
     const [manufacture_date, setManufacture_date] = useState('');
     const [install_date, setInstall_date] = useState('');
-    const [device_type_id, setDevice_type_id] = useState(2);
+    const [device_type_id, setDevice_type_id] = useState(3);
   
     // additional info
     const [filterSize, setFilterSize] = useState('');
@@ -149,7 +149,7 @@ export default function IntakeFormUnder_Sink (){
               <button
                 className="btn"
                 onClick={() => {
-                  history.push('/home');
+                  history.push('/initial-intake');
                 }}
               >
                 Back

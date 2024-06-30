@@ -110,7 +110,7 @@ export default function IntakeFormGutters_n_Spouts (){
               <button
                 className="btn"
                 onClick={() => {
-                  history.push('/home');
+                  history.push('/initial-intake');
                 }}
               >
                 Back

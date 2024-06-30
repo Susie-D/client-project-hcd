@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import './_intakeForm.scss';
 
 function IntakeFormBase() {
-  // const dispatch = useDispatch();
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
@@ -16,7 +15,7 @@ function IntakeFormBase() {
   const [location, setLocation] = useState('');
   const [manufacture_date, setManufacture_date] = useState('');
   const [install_date, setInstall_date] = useState('');
-  const [device_type, setDevice_type] = useState('1');
+  const [device_type, setDevice_type] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,7 +36,7 @@ function IntakeFormBase() {
         device: device,
       },
     });
-    history.push('/devices'); // Navigate to the next page if needed
+    history.push('/devices');
   };
 
   return (
