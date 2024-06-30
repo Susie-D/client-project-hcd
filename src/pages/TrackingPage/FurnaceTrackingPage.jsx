@@ -4,7 +4,7 @@ import '../../styles/_styles.scss';
 // CUSTOM COMPONENTS
 import TrackingFormFurnace from '../../components/TrackingForm/TrackingFurnaceForm';
 
-export default function FurnaceIntakePage() {
+export default function FurnaceTrackingPage() {
   return (
     <div className="login-container">
         <PageLayout>

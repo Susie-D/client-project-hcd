@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './_trackingForm.scss';
 
-export default function IntakeFormFurnace() {
+export default function TrackingFormFridge() {
   const history = useHistory();
   const user = useSelector((store) => store.user);
 
@@ -74,17 +74,11 @@ export default function IntakeFormFurnace() {
           </div>
           <div className="header-five jc-center" style={{ fontWeight: 'bold', textAlign: 'center' }}>
             <br/>
-            HC Note - HEPA changes can be as short as 3 months or as long as 6 months.
-            HouseCheckup has picked every 4 months as a reminder and task to preform.
-            <br/>
-            <br/>
             Other Tips to do now -	
             <br/>
-            1. Vacuum Exterior Unit 
+            1. Vacuum AC Coils 
             <br/>
-            2. Clean Interior of the Unit 
-            <br/>
-            3. Inspect condensate pumps (if any)
+            2. Inspect Water Line
           </div>
           <div className="row jc-center">
             <input
@@ -109,7 +103,7 @@ export default function IntakeFormFurnace() {
             <button
               className="btn"
               onClick={() => {
-                history.push('/furnace-intake');
+                history.push('/refrigerator-intake');
               }}
             >
               Back

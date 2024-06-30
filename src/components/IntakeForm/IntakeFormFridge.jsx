@@ -57,7 +57,7 @@ function IntakeFormFridge (){
          device: device,
        },
      });
-    history.push('/devices'); // Navigate to the next page if needed
+    history.push('/Refrigerator-tracking'); // Navigate to the next page
    };
 
    return (

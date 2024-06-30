@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './_trackingForm.scss';
 
-export default function IntakeFormFurnace() {
+export default function TrackingFormFurnace() {
   const history = useHistory();
   const user = useSelector((store) => store.user);
 
