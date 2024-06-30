@@ -11,7 +11,7 @@ function UserPage() {
     <PageLayout>
       <div className="container">
         <h2>Welcome, {user.username}!</h2>
-        <NavLink className="nav-link" to="/info">
+        <NavLink className="nav-link" to="/resources">
           Tutorial &
           <br />
           Helpful Links
