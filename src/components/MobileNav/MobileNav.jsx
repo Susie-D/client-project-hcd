@@ -42,7 +42,7 @@ export default function MobileNav() {
                   <Link to="/resources">Resources</Link>
                 </li>
                 <li>
-                  <Link to="/devices">Reports</Link>
+                  <Link to="/devices">Devices List</Link>
                 </li>
                 <li>
                   <Link

@@ -61,9 +61,7 @@ export default function IntakeFormFurnace() {
 
     dispatch({
       type: 'ADD_DEVICE',
-      payload: {
-        device: device,
-      },
+      payload: device,
     });
     history.push('/furnace-tracking');
   };
@@ -114,32 +112,35 @@ export default function IntakeFormFurnace() {
           onChange={(event) => setSerial_number(event.target.value)}
         />
       </div>
-      <div className="column">
+      <div className="column text-xs">
+        Manufacture Date
         <input
           type="date"
           name="manufacture_date"
           placeholder="Manufacture Date"
-          className="row text-xs"
+          className="row jc-center text-xs"
           value={manufacture_date}
           required
           onChange={(event) => setManufacture_date(event.target.value)}
         />
       </div>
-      <div className="column">
+      <div className="column text-xs">
+        Installation Date
         <input
           type="date"
           name="install_date"
           placeholder="Date installed"
-          className="row text-xs"
+          className="row jc-center text-xs"
           value={install_date}
           required
           onChange={(event) => setInstall_date(event.target.value)}
         />
-
-        <div className="text-s row text-m" style={{ fontWeight: 'bold' }}>
+        <div
+          className="text-s jc-center row text-m dark"
+          style={{ fontWeight: 'bold' }}
+        >
           Additional Device Info
         </div>
-
         <input
           type="text"
           name="filterType"
