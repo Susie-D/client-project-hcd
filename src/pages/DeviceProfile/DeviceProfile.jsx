@@ -79,7 +79,7 @@ function DeviceProfile() {
             <button
               className="btn_sizeMin videos text-xxs"
               onClick={() => {
-                history.push('/device-how-to-videos');
+                history.push('/device-how-to-videos/furnace');
               }}
             >
               How to Videos

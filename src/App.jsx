@@ -81,17 +81,13 @@ function App() {
           >
             <DeviceProfile />
           </ProtectedRoute>
-
           <ProtectedRoute
             // logged in shows DeviceProfile else shows LoginPage
             exact
-            path="/device-how-to-videos"
+            path="/device-how-to-videos/furnace"
           >
             <DeviceHowToVideos />
           </ProtectedRoute>
-
-
-
           <ProtectedRoute exact path="/initial-intake">
             <InitialIntake />
           </ProtectedRoute>

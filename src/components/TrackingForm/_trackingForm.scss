@@ -4,8 +4,8 @@
   box-sizing: border-box;
   width: 400px;
   max-width: 100%;
-  padding: 25px;
-  margin: 10px auto 30px;
+  padding: 20px;
+  margin: 10px auto 0px;
   &-input {
     margin: $margin-l 0;
   }
@@ -15,7 +15,15 @@
     border-right: none;
     border-left: none;
     &.row.text-s {
-      width: 100%;  
+      width: 100%;
+    }
+  }
+  .btn_sizeMin.two {
+    background: $dark;
+    color: $white;
+    &:hover {
+      background: $white;
+      color: $dark;
     }
   }
 }
