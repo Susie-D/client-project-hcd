@@ -14,7 +14,7 @@ import {
   InitialIntake,
   LoginPage,
   SignUpPage,
-  UserPage,
+  HomePage,
   FurnaceIntakePage,
   FurnaceTrackingPage,
   FridgeIntakePage,
@@ -62,7 +62,7 @@ function App() {
             exact
             path="/home"
           >
-            <UserPage />
+            <HomePage />
           </ProtectedRoute>
           <ProtectedRoute exact path="/info">
             <InfoPage />

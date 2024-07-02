@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { PageLayout } from '../pages';
-import './UserPage.scss';
+import './HomePage.scss';
 
 function UserPage() {
   const user = useSelector((store) => store.user);

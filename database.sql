@@ -71,13 +71,12 @@ CREATE TABLE "devices" (
 );
 -- Practice Device Data
 INSERT INTO "devices" ("device_types_id", "brand", "model_number", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id", "completed?") 
-    VALUES ('1', 'LG', 'LFX25950', 'LFX25950-123456', '06/14/2024', '06/14/2025', 'Kitchen', 'https://static-data2.manualslib.com/product-images/07a/2038183/lg-lupxc2386n-refrigerator.jpg', '01/15/2018', '01/20/2018', '3', FALSE),
-    
-           ('1', 'Kenmore', '71063', '71063-123456', '05/20/2024', '05/20/2025', 'Kitchen', 'https://target.scene7.com/is/image/Target/GUEST_aa57b540-29fe-48f0-aca1-7166c13c573b?wid=488&hei=488&fmt=pjpeg', '04/10/2010', '04/20/2010', '4', FALSE),
+    VALUES  
+           ('1', 'Kenmore', '71063', '71063-123456', '05-20-2024', '05-20-2025', 'Kitchen', 'https://target.scene7.com/is/image/Target/GUEST_aa57b540-29fe-48f0-aca1-7166c13c573b?wid=488&hei=488&fmt=pjpeg', '04-10-2010', '04-20-2018', '6', FALSE),
            
-           ('2', 'Trane', 'S9V2B040D3PSCA', 'JHY1234-4321', '06/10/2024', '06/01/2025', 'Laundry Room', 'https://hvacdirect.com/media/catalog/product/t/h/thumbnail_trane-runtru-ac_5.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700', '01/01/2018', '01/10/2019', '3', FALSE),
+           ('2', 'Trane', 'S9V2B040D3PSCA', 'JHY1234-4321', '06-10-2024', '06-01-2025', 'Laundry Room', 'https://hvacdirect.com/media/catalog/product/t/h/thumbnail_trane-runtru-ac_5.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700', '01-01-2008', '01-10-2018', '6', FALSE),
            
-           ('3', 'Delta', 'Lorelai', '95B932-32S', '04/17/2024', '06/08/2024', 'Kitchen', 'https://images.thdstatic.com/productImages/32e1194a-e11a-4f55-bbd6-ffa9da5d99c9/svn/stainless-steel-delta-drop-in-kitchen-sinks-95a932-25s-ss-64_600.jpg', '08/08/2017', '09/09/2019', '1', FALSE );  
+           ('3', 'Delta', 'Lorelai', '95B932-32S', '07-17-2024', '07-17-2025', 'Kitchen', 'https://images.thdstatic.com/productImages/32e1194a-e11a-4f55-bbd6-ffa9da5d99c9/svn/stainless-steel-delta-drop-in-kitchen-sinks-95a932-25s-ss-64_600.jpg', '08-08-2017', '09-09-2019', '6', FALSE );
 
 
 -- DEVICE_PROPERTIES
@@ -117,13 +116,4 @@ INSERT INTO "additional_device_info" ("prop_value", "devices_id", "properties_id
             ('20', '3' ,'8'),
             ('w28xl26xd1', '4', '9'),
             ('20608', '4', '10');
-            
--- Practice Device Data
-INSERT INTO "devices" ("device_types_id", "brand", "model_number", "serial_number", "maintenance_date", "maintenance_due", "location", "img_url", "manufacture_date", "install_date", "user_id", "completed?") 
-    VALUES  
-           ('1', 'Kenmore', '71063', '71063-123456', '05/20/2024', '05/20/2025', 'Kitchen', 'https://target.scene7.com/is/image/Target/GUEST_aa57b540-29fe-48f0-aca1-7166c13c573b?wid=488&hei=488&fmt=pjpeg', '04/10/2010', '04/20/2018', '6', FALSE),
            
-           ('2', 'Trane', 'S9V2B040D3PSCA', 'JHY1234-4321', '06/10/2024', '06/01/2025', 'Laundry Room', 'https://hvacdirect.com/media/catalog/product/t/h/thumbnail_trane-runtru-ac_5.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700', '01/01/2008', '01/10/2018', '6', FALSE),
-           
-           ('3', 'Delta', 'Lorelai', '95B932-32S', '07/17/2024', '07/17/2025', 'Kitchen', 'https://images.thdstatic.com/productImages/32e1194a-e11a-4f55-bbd6-ffa9da5d99c9/svn/stainless-steel-delta-drop-in-kitchen-sinks-95a932-25s-ss-64_600.jpg', '08/08/2017', '09/09/2019', '6', FALSE );  
-            
